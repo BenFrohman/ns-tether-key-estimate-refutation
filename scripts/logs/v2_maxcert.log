@@ -1,0 +1,6 @@
+grad G(0): 0 0
+Hessian(0): -1152 0 -576
+(I) concavity verified on [-1/8,1/8]^2 with 592 boxes
+(III) tail bound for rho>=1-eta (eta=1/20): G <= [2.77385892342058e-35 +/- 3.24e-50]  (<144: True )
+(II) verified G<144 on all remaining boxes; 4345 interval evaluations
+CERTIFIED: max |omega1|^2 = 144 attained only at the origin; M_1 = ||omega1||_inf = 12

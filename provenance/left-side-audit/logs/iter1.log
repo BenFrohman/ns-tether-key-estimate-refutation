@@ -1,0 +1,32 @@
+FrohmanianTetherDraftAudit.lean:96:5: error: Ambiguous term
+  intervalIntegrable_const
+Possible interpretations:
+  _root_.intervalIntegrable_const ?m.12214 : IntervalIntegrable (fun x => max (M 0) √(C / k)) volume 0 t
+  
+  intervalIntegral.intervalIntegrable_const : IntervalIntegrable (fun x => max (M 0) √(C / k)) volume 0 t
+FrohmanianTetherDraftAudit.lean:225:35: error: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  - -?a
+ω a b : Fin 3 → ℝ
+⊢ -(ω ⬝ᵥ (crossProduct b) a) = -(ω ⬝ᵥ (crossProduct b) a)
+FrohmanianTetherDraftAudit.lean:319:6: error: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  fun y => Real.sinh y / Real.cosh y
+x : ℝ
+hc : Real.cosh x ≠ 0
+h : HasDerivAt (Real.sinh / Real.cosh) ((Real.cosh x * Real.cosh x - Real.sinh x * Real.sinh x) / Real.cosh x ^ 2) x
+hfun : (fun y => Real.sinh y / Real.cosh y) = Real.tanh
+⊢ HasDerivAt Real.tanh (1 - Real.tanh x ^ 2) x
+Try this: ring_nf
+FrohmanianTetherDraftAudit.lean:351:65: error: unsolved goals
+C k : ℝ
+hC : 0 ≤ C
+hk : 0 < k
+φ0 t : ℝ
+hlin : HasDerivAt (fun s => √(C * k) * s + φ0) (√(C * k)) t
+hab : √(C / k) * √(C * k) = C
+hsq : √(C / k) ^ 2 = C / k
+hk2 : k * (C / k) = C
+τ : ℝ := Real.tanh (√(C * k) * t + φ0)
+h : HasDerivAt (fun y => √(C / k) * (Real.tanh ∘ fun s => √(C * k) * s + φ0) y) (√(C / k) * ((1 - τ ^ 2) * √(C * k))) t
+⊢ √(C * k⁻¹) * √(C * k) - √(C * k⁻¹) * √(C * k) * τ ^ 2 =
+    -(τ ^ 2 * √(k⁻¹ * √(C * k⁻¹) * √(C * k)) * √(k * √(C * k⁻¹) * √(C * k))) +
+      √(k⁻¹ * √(C * k⁻¹) * √(C * k)) * √(k * √(C * k⁻¹) * √(C * k))

@@ -1,0 +1,263 @@
+% Copyright 2026 Benjamin Stanley Frohman. Licensed under CC BY 4.0.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.6cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{fancyvrb}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\SourceCommit}{SOURCE-COMMIT-PLACEHOLDER}
+\newcommand{\T}{\mathbb{T}^3}
+\newcommand{\R}{\mathbb{R}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\usepackage{xurl}
+\newcommand{\lean}[1]{\path{#1}}
+
+\title{The Riccati Vorticity Estimate $M' \le C - kM^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$:\\
+An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}
+\author{Benjamin Stanley Frohman\\
+\small Independent Researcher, Texas, United States\\
+\small ORCID \href{https://orcid.org/0009-0006-7068-3718}{0009-0006-7068-3718} \quad
+\small \href{mailto:frohmanbenjamin@gmail.com}{frohmanbenjamin@gmail.com}}
+\date{10 November 2026}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+An earlier unpublished draft by the author claimed global regularity for the 3D incompressible
+Navier--Stokes equations via a ``symplectic tether''. Its central step was an a-priori Riccati estimate
+$M'(t)\le C-kM(t)^2$ for the vorticity sup-norm $M(t)=\|\omega(\cdot,t)\|_{L^\infty}$. We show that this estimate is
+false on $\T$ when $C,k$ depend only on the viscosity $\nu$. We do this with an explicit trigonometric initial
+datum whose peak vorticity strictly increases at $t=0$. We also show it is false when $C,k$ may depend in an
+arbitrary way on $\nu$ and the kinetic energy, or on $\nu$ and $\|u_0\|_{L^3}$, by a scaled localized vortex. If the constants may
+depend on the initial datum in an arbitrary way, the estimate is equivalent to global regularity and remains
+\emph{open}. \textbf{This note makes no claim about the Clay Millennium Problem.} A companion Lean~4 audit of the draft proves that its
+tether form is symmetric and not antisymmetric (hence not symplectic), and that because the tether vanishes against the
+energy, $B(F,H)=0$, it cannot change the flow. Any vorticity control therefore cannot come from the tether. The audit
+also proves that the draft's $\tanh$ solution formula cannot match initial data above $\sqrt{C/k}$. It proves
+the conditional chain ``Riccati estimate $+$ BKM $\Rightarrow$ no finite-time blow-up'', with the estimate
+carried as an explicit hypothesis. Everything machine-checked builds without \texttt{sorry} and uses only
+Lean's standard axioms.
+\end{abstract}
+
+\section{Setting and the estimate}
+Let $\T=(\R/2\pi\mathbb{Z})^3$, $\nu>0$, and let $u$ be a smooth solution of
+$\partial_t u+(u\cdot\nabla)u+\nabla p=\nu\Delta u$, $\nabla\cdot u=0$, with vorticity $\omega=\nabla\times u$ satisfying
+\begin{equation}\label{eq:vort}
+\partial_t\omega=(\omega\cdot\nabla)u-(u\cdot\nabla)\omega+\nu\Delta\omega .
+\end{equation}
+Put $M(t)=\|\omega(\cdot,t)\|_{L^\infty}$. The draft's \emph{key estimate} is
+\begin{equation}\label{eq:key}
+M'(t)\le C-k\,M(t)^2\quad\text{on }[0,T),\qquad C\ge0,\ k>0 .
+\end{equation}
+Since $M$ is in general only Lipschitz, we refute both the differentiable form (\lean{DraftRiccatiEstimate})
+and the weaker form with the upper right Dini derivative, $D^+M\le C-kM^2$ (\lean{DiniRiccatiEstimate}). Any
+of these forms forces $M$ to be non-increasing wherever $M>\sqrt{C/k}$.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Variant & $C,k$ may depend on & Status\\
+\midrule
+V1 & $\nu$ only (the draft's claim) & \textbf{false} (Theorem~\ref{thm:v1})\\
+V2 & $\nu$ and $\|u_0\|_{L^2}$, arbitrarily & \textbf{false} (Theorem~\ref{thm:v2})\\
+V2$'$ & $\nu$ and $\|u_0\|_{L^3}$ & \textbf{false} (Remark~\ref{rem:l3})\\
+V3 & $u_0$ arbitrarily & equivalent to global regularity: \textbf{open}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{lemma}[touching lemma]\label{lem:touch}
+(Lean: \lean{rightDeriv_le_of_touch}, \lean{draftRiccati_false_of_touch},
+\lean{diniRiccati_false_of_touch}.)
+Let $T>0$ and $g\le M$ on $[0,T)$ with $g(0)=M(0)$, and let $g$ have right derivative $r$ at $0$. If
+$r>C-kM(0)^2$, then neither form of \eqref{eq:key} holds on $[0,T)$.
+\end{lemma}
+
+\section{V1: an explicit counterexample}
+Let
+\[
+U(x,y,z)=3(-\sin y,\ \sin x,\ 0)+(-\sin x\cos z,\ 0,\ \cos x\sin z),\qquad u_0=A\,U,\ A>0 .
+\]
+\begin{proposition}\label{prop:U}
+(Lean: \lean{div_free}, \lean{w1_eq}--\lean{w3_eq}, \lean{omega_sq_le},
+\lean{omega_at_origin}, \lean{omega_norm_bound}, \lean{rhs_origin}.)
+\begin{enumerate}
+\item[(a)] $\nabla\cdot U=0$ and $\Omega:=\nabla\times U=(0,\ 2\sin x\sin z,\ 3(\cos x+\cos y))$.
+\item[(b)] $|\Omega|^2=9(\cos x+\cos y)^2+4\sin^2x\sin^2z\le36$, with equality at the origin. So
+$M(0)=\|A\Omega\|_\infty=6A$.
+\item[(c)] At $x=0$ the right-hand side of \eqref{eq:vort} for $u=AU$, $\omega=A\Omega$ equals $(0,0,6A(A-\nu))$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}[Proof sketch]
+(a) and (c) are direct differentiation; at the origin $U(0)=0$, the strain is $S(0)=\mathrm{diag}(-1,0,1)$,
+$\Omega(0)=(0,0,6)$ and $\Delta\Omega(0)=(0,0,-6)$. Stretching contributes $6A^2$, advection $0$ and diffusion
+$-6\nu A$. For (b), $(\cos x+\cos y)^2\le2\cos^2x+2$ and $4\sin^2x\sin^2z\le4(1-\cos^2x)$, so
+$|\Omega|^2\le22+14\cos^2x\le36$.
+\end{proof}
+
+\begin{theorem}[V1 is false]\label{thm:v1}
+For every $\nu>0$, $C\ge0$ and $k>0$ there is $A>\nu$ (explicitly $A=\nu+1+|C|/k$) such that the smooth
+solution with $u_0=AU$ violates \eqref{eq:key}, in either form, on every interval $[0,T)$ with $T>0$.
+\end{theorem}
+\begin{proof}
+By classical local well-posedness \cite{Kato1972,RRS2016}, the solution is smooth on $[0,T)\times\T$ up to
+$t=0$. Hence $g(t):=\omega_3(0,t)$ is $C^1$ with $g'(0)=6A(A-\nu)$ by Proposition~\ref{prop:U}(c) and
+\eqref{eq:vort}. Also $g\le|\omega(0,t)|\le M(t)$ and $g(0)=6A=M(0)$. (Using the component $\omega_3$ avoids
+differentiating $|\cdot|$.) The arithmetic lemma \lean{amplitude_exists} gives
+$6A(A-\nu)>C-k(6A)^2$, and Lemma~\ref{lem:touch} concludes.
+\end{proof}
+Concretely, with $\nu=1$ and $A=3$ we get $M(0)=18$, and the lower right Dini derivative of $M$ at $0$ is at least $36$.
+
+\section{V2: constants depending on $\nu$ and the energy}
+Amplitude scaling alone cannot refute V2, since an arbitrary $C(E)$ can absorb the growth of the energy $E$. We use
+Navier--Stokes scaling of a localized field instead.
+
+\paragraph{Base field.} Let $\beta(\rho)=\exp(-3\rho/(1-\rho))$ for $\rho<1$ and $\beta=0$ for $\rho\ge1$, with $\rho=|x|^2$.
+Let $\Psi=\beta\,e_z+z\beta\,(-y,x,0)$ and $u_1=\nabla\times\Psi$. This $u_1$ is smooth, divergence-free and supported in the closed unit ball.
+Exact symbolic computation (\texttt{scripts/v2\_symbolic.py}) gives $\omega_1(0)=(0,0,12)$, $u_1(0)=0$,
+$\partial_3u_{1,3}(0)=2$ and $\Delta\omega_1(0)=(0,0,-120)$. It also shows that $|\omega_1|^2$ is exactly invariant under rotations
+about the $z$-axis and even in $x$ and in $z$. A rigorous ball-arithmetic certificate
+(\texttt{scripts/v2\_maxcert.py}, python-flint/Arb \cite{Arb2017}) proves $\max_{\R^3}|\omega_1|^2=144$, attained only at the origin, so
+$\|\omega_1\|_\infty=12$. The certificate has three parts: (I) negative-definite interval Hessian on $[-\tfrac18,\tfrac18]^2$ (592 boxes);
+(II) interval upper bounds $<144$ on all other boxes meeting $\rho\le\tfrac{19}{20}$ (4{,}345 evaluations);
+(III) an explicit tail bound $\le2.8\cdot10^{-35}$ for $\tfrac{19}{20}\le\rho<1$.
+
+\paragraph{Family.} Fix $B=10\nu$. For $\lambda\ge1$ put $\lambda B\,u_1(\lambda x)$ in the ball of radius $1/\lambda$ about
+$0\in\T$, and add a background $\mu\,u_2(x-p)$ with $p=(\pi,\pi,\pi)$. Here $u_2=\nabla\times(\beta(|x|^2)e_z)$ is a fixed nonzero
+smooth divergence-free field supported in the unit ball, with finite $M_2=\|\nabla\times u_2\|_\infty$ and energy $E_2>0$. The two supports are disjoint. The energy is
+$\tfrac12\|u_0\|_2^2=\lambda^{-1}B^2E_1+\mu^2E_2$. So for any target $E^*>0$ and $\lambda>B^2E_1/E^*$,
+the choice $\mu=\sqrt{(E^*-\lambda^{-1}B^2E_1)/E_2}$ makes the energy exactly $E^*$. For $\lambda$ large,
+$M(0)=\max(12B\lambda^2,\mu M_2)=120\nu\lambda^2$, attained at $0$. At $(x,t)=(0,0)$ the background vanishes nearby, and
+\[
+\partial_t\omega_3(0,0)=(12\lambda^2B)(2\lambda^2B)-0+\nu\lambda^4B(-120)=24B(B-5\nu)\lambda^4=1200\,\nu^2\lambda^4 .
+\]
+
+\begin{theorem}[V2 is false]\label{thm:v2}
+For every $\nu>0$, $E^*>0$ and every choice $C=C(\nu,E^*)\ge0$, $k=k(\nu,E^*)>0$, some smooth divergence-free $u_0$ on $\T$
+with energy exactly $E^*$ violates \eqref{eq:key} at $t=0$.
+\end{theorem}
+\begin{proof}
+As in Theorem~\ref{thm:v1}, with $g(t)=\omega_3(0,t)$, $g(0)=M(0)=120\nu\lambda^2$ and $g'(0)=1200\nu^2\lambda^4$.
+Choose $\lambda$ with $1200\nu^2\lambda^4\ge C$. Then \lean{localized_family_violation} gives
+$C-k(120\nu\lambda^2)^2<1200\nu^2\lambda^4$, and Lemma~\ref{lem:touch} applies.
+\end{proof}
+
+\begin{remark}[V2$'$]\label{rem:l3}
+Without the background ($\mu=0$), $\|\lambda Bu_1(\lambda\cdot)\|_{L^3(\T)}=B\|u_1\|_{L^3(\R^3)}$ does not depend on $\lambda$.
+So constants depending on $\nu$ and the scale-critical norm $\|u_0\|_{L^3}$ are refuted by the same computation. Constants
+that may grow with a norm that blows up along the family, such as $\|u_0\|_{H^s}$ for $s>\tfrac12$ or $\|\omega_0\|_\infty$,
+fall under V3.
+\end{remark}
+
+\section{V3 is equivalent to global regularity, and is open}
+For a fixed smooth $u_0$ on $\T$, the following are equivalent: (a) the solution is global and smooth; (b) there are
+$C\ge0$ and $k>0$ with $D^+M\le C-kM^2$ for all $t\ge0$.
+
+(b)$\Rightarrow$(a): comparison gives $M\le\max(M(0),\sqrt{C/k})$, so $\int_0^TM<\infty$ for every $T$, and the
+Beale--Kato--Majda criterion \cite{BKM1984} excludes blow-up.
+
+(a)$\Rightarrow$(b): the elementary Danskin-type bound $D^+M(t)\le\|\partial_t\omega(t)\|_\infty$ holds. For a global
+smooth solution, eventual smallness of $\|\nabla u\|_2$, small-data theory and decay of higher norms
+\cite{RRS2016,FoiasTemam1989} (after a Galilean reduction to mean zero if $\int u_0\ne0$) give $\sup_t\|\partial_t\omega\|_\infty<\infty$ and $\sup_tM<\infty$.
+
+Hence V3 for all smooth data is equivalent to global regularity on $\T$, Fefferman's statement~(B) \cite{Fefferman}
+up to the choice of period. \emph{It is open, and nothing here proves or disproves it.}
+
+At a point where $|\omega|$ is maximal, $\partial_t|\omega|=|\omega|\,\xi\cdot S\xi+\nu\,\xi\cdot\Delta\omega$ with
+$\xi=\omega/|\omega|$. The stretching term has size $\sim M^2$ and can be positive (its value was $+1$ in V1 and $+2$ in V2
+per unit amplitude) \cite{MajdaBertozzi2002}. Nothing in \eqref{eq:vort} produces a $-kM^2$ term.
+
+\section{Lean-checked audit of the symplectic-tether draft}
+In the draft, $B(F,G)=-\kappa W\langle P^\perp\delta F,P^\perp\delta G\rangle$, where
+$P^\perp w=w-\frac{\langle w,u\rangle}{\|u\|^2}u$ and $W=\int|\omega|^2$. The ``tether 2-form'' is
+$\mathfrak T(a,b)=\omega\cdot(a\times b)-\kappa|\omega|^2(a\cdot b)$. The file \texttt{lean/FrohmanianTetherDraftAudit.lean}
+proves the following.
+\begin{itemize}
+\item \lean{tetherB_symm}, \lean{tetherB_degenerate_H}: $B$ is symmetric and $B(F,H)=0$ for $\delta H=u$.
+\item \lean{tetherB_diag_ne_zero}, \lean{tetherB_not_antisymm} (and a concrete $\R^2$ witness): if $\kappa,W\ne0$ and
+$P^\perp v\ne0$ then $B(v,v)\ne0$, so $B$ is \emph{not} antisymmetric.
+\item \lean{arnold_part_antisymm}, \lean{tether2Form_not_antisymm}: the Arnold part is antisymmetric, but $\mathfrak T$ is
+not, so it is not a symplectic form, as the draft's A1, Lemma~3 and Theorem~4.1 had claimed.
+\item \lean{generator_indep_kappa}, \lean{isTetherFlow_iff}, \lean{observable_deriv_indep_kappa},
+\lean{draftRiccati_tether_iff_classical}: because $B(F,H)=0$, the generated dynamics do not depend on $\kappa$. The key
+estimate holds for the tethered flow if and only if it holds for the classical flow, so the claimed feedback cannot come
+from the tether. (Here \lean{IsTetherFlow} is an abstract weak formulation of the draft's bracket dynamics, not a PDE
+solution concept.)
+\item \lean{tanh_solves_riccati}, \lean{tanh_initial_lt}, \lean{tanh_cannot_match_large_data}: the draft's formula
+$y=\sqrt{C/k}\tanh(\sqrt{Ck}\,t+\phi_0)$ solves $y'=C-ky^2$, but always has $|y(0)|<\sqrt{C/k}$. It can never match
+data above $\sqrt{C/k}$.
+\item \lean{riccati_comparison}, \lean{riccati_integral_bound}, \lean{conditional_extension},
+\lean{conditional_no_finite_blowup}: the \emph{conditional} chain. If \lean{DraftRiccatiEstimate} and the BKM
+continuation property (\lean{BKMContinuation}) hold, both as explicit hypotheses, then the solution extends past every
+finite time. This is only conditional; by Theorems~\ref{thm:v1}--\ref{thm:v2}, the hypothesis is false in the
+draft's form.
+\end{itemize}
+
+\section{What is machine-checked and what is cited}
+\textbf{In Lean 4} \cite{Lean4} with Mathlib \cite{Mathlib} (both files, 50 declarations, no \texttt{sorry}, no \texttt{axiom} declarations):
+\begin{itemize}
+\item the touching lemma, in both differentiable and Dini forms;
+\item for $u_0=AU$: the divergence, the curl, the global bound $|\Omega|\le6$ with equality at $0$, and the
+exact right-hand side of \eqref{eq:vort} at the origin (derivatives as \texttt{deriv} of coordinate slices);
+\item the amplitude choice; the scalar step of V2;
+\item all audit statements in Section~5.
+\end{itemize}
+\textbf{Cited or computed outside Lean:}
+\begin{itemize}
+\item Local existence, uniqueness and smoothness up to $t=0$ for smooth data on $\T$ \cite{Kato1972,RRS2016}. This
+identifies $g'(0)$ with the right-hand side of \eqref{eq:vort}, the derivative step behind the touching lemma.
+\item The Danskin-type bound $D^+M\le\|\partial_t\omega\|_\infty$ (used only in the V3 remark).
+\item The BKM criterion \cite{BKM1984}, which is an explicit hypothesis in Lean.
+\item The V2 symbolic values (sympy) and the Arb maximum certificate \cite{Arb2017}, plus the energy and support bookkeeping
+of the family.
+\item The decay and eventual-smallness facts in Section~4 \cite{RRS2016,FoiasTemam1989}.
+\end{itemize}
+\textbf{Numerics are supporting only.} A pseudo-spectral simulation (\texttt{scripts/ns\_check.py}, optional in
+\texttt{verify.sh}) is not part of any proof. With $\nu=1$, $A=3$ on a $64^3$ grid, it shows an initial slope of
+$35.80$ against the exact $36$. For the localized field with $B=10$, $\lambda=1$, the slope is $1162$ at $192^3$
+against the exact $1200$. The $128^3$ run is under-resolved.
+
+\section{Reproducibility}
+Repository:
+\begin{center}\url{https://github.com/BenFrohman/ns-tether-key-estimate-refutation}\end{center}
+The Lean sources, scripts and
+\texttt{verify.sh} are those of commit \texttt{\SourceCommit}. Tag \texttt{v1.0.0} adds only this PDF and the
+recorded hashes. Toolchain: Lean 4.22.0 (commit \texttt{ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05}); Mathlib
+\texttt{v4.22.0}, revision \texttt{79e94a093aff4a60fb1b1f92d9681e407124c2ca}; Python 3.13.5 with python-flint 0.9.0,
+sympy 1.14.0, mpmath 1.3.0 and numpy 2.5.4. One command:
+\begin{verbatim}
+git clone https://github.com/BenFrohman/ns-tether-key-estimate-refutation
+cd ns-tether-key-estimate-refutation
+./verify.sh               # add --numerics for the optional simulation
+\end{verbatim}
+Output of \texttt{lake env lean PrintAxioms.lean}, verbatim:
+{\fontsize{6.5}{7.5}\selectfont
+\VerbatimInput{axioms.txt}
+}
+
+\begin{thebibliography}{9}
+\bibitem{BKM1984} J.~T.~Beale, T.~Kato, A.~Majda, Remarks on the breakdown of smooth solutions for the 3-D Euler
+equations, \emph{Comm. Math. Phys.} 94 (1984) 61--66.
+\bibitem{Kato1972} T.~Kato, Nonstationary flows of viscous and ideal fluids in $\R^3$, \emph{J. Funct. Anal.} 9 (1972)
+296--305.
+\bibitem{RRS2016} J.~C.~Robinson, J.~L.~Rodrigo, W.~Sadowski, \emph{The Three-Dimensional Navier--Stokes Equations:
+Classical Theory}, Cambridge Stud. Adv. Math. 157, Cambridge Univ. Press, 2016.
+\bibitem{FoiasTemam1989} C.~Foias, R.~Temam, Gevrey class regularity for the solutions of the Navier--Stokes equations,
+\emph{J. Funct. Anal.} 87 (1989) 359--369.
+\bibitem{MajdaBertozzi2002} A.~J.~Majda, A.~L.~Bertozzi, \emph{Vorticity and Incompressible Flow}, Cambridge Univ.
+Press, 2002.
+\bibitem{Fefferman} C.~L.~Fefferman, Existence and smoothness of the Navier--Stokes equation, official problem
+description, Clay Mathematics Institute (2000).
+\bibitem{Arb2017} F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval arithmetic, \emph{IEEE
+Trans. Comput.} 66 (2017) 1281--1292.
+\bibitem{Lean4} L.~de~Moura, S.~Ullrich, The Lean 4 theorem prover and programming language, in \emph{CADE-28}, LNCS
+12699, Springer, 2021, 625--635.
+\bibitem{Mathlib} The mathlib Community, The Lean mathematical library, in \emph{CPP 2020}, ACM, 2020, 367--381.
+\end{thebibliography}
+\end{document}

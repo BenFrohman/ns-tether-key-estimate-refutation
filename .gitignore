@@ -1,0 +1,10 @@
+/out/
+/.venv/
+/lean/.lake/
+__pycache__/
+*.pkl
+/paper/*.aux
+/paper/*.log
+/paper/*.out
+/paper/*.bbl
+/paper/*.blg

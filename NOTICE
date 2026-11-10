@@ -1,0 +1,13 @@
+ns-tether-key-estimate-refutation
+Copyright 2026 Benjamin Stanley Frohman
+
+Code (lean/, scripts/, verify.sh and other software files) is licensed under the
+Apache License, Version 2.0 (see LICENSE).
+
+The paper (paper/, including the LaTeX source and PDF) and the prose documentation
+(README.md, provenance/*.md) are licensed under the Creative Commons Attribution 4.0
+International License, CC BY 4.0 (see LICENSE-paper).
+
+This work builds on, but does not include, Lean 4 and Mathlib (Apache-2.0), and uses
+python-flint/FLINT-Arb (LGPL), SymPy (BSD), mpmath (BSD) and NumPy (BSD) as external
+dependencies installed at verification time.

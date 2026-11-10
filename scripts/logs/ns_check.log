@@ -1,0 +1,28 @@
+/workspace/key-estimate-2026-11-09/ns_check.py:10: DeprecationWarning: `axes` should not be `None` if `s` is not `None` (Deprecated in NumPy 2.0). In a future version of NumPy, this will raise an error and `s[i]` will correspond to the size along the transformed axis specified by `axes[i]`. To retain current behaviour, pass a sequence [0, ..., k-1] to `axes` for an array of dimension k.
+  F=lambda f: np.fft.rfftn(f); Fi=lambda f: np.fft.irfftn(f,s=(N,N,N))
+V1(A=3,nu=1) t=0.00000 max|w|grid=18.000000 |w(0)|=18.000000
+V1(A=3,nu=1) t=0.00200 max|w|grid=18.071597 |w(0)|=18.071597
+V1(A=3,nu=1) t=0.00400 max|w|grid=18.142362 |w(0)|=18.142362
+V1(A=3,nu=1) t=0.00600 max|w|grid=18.212256 |w(0)|=18.212256
+V1(A=3,nu=1) t=0.00800 max|w|grid=18.281239 |w(0)|=18.281239
+V1(A=3,nu=1) t=0.01000 max|w|grid=18.349275 |w(0)|=18.349275
+V1(A=3,nu=1) t=0.01200 max|w|grid=18.416327 |w(0)|=18.416327
+V1(A=3,nu=1) t=0.01400 max|w|grid=18.482361 |w(0)|=18.482361
+V1(A=3,nu=1) t=0.01600 max|w|grid=18.547340 |w(0)|=18.547340
+V1(A=3,nu=1) t=0.01800 max|w|grid=18.611233 |w(0)|=18.611233
+V1(A=3,nu=1) t=0.02000 max|w|grid=18.674007 |w(0)|=18.674007
+/workspace/key-estimate-2026-11-09/ns_check.py:10: DeprecationWarning: `axes` should not be `None` if `s` is not `None` (Deprecated in NumPy 2.0). In a future version of NumPy, this will raise an error and `s[i]` will correspond to the size along the transformed axis specified by `axes[i]`. To retain current behaviour, pass a sequence [0, ..., k-1] to `axes` for an array of dimension k.
+  F=lambda f: np.fft.rfftn(f); Fi=lambda f: np.fft.irfftn(f,s=(N,N,N))
+V1(A=3,nu=1): initial grid M=18.000000 (exact 18.0); finite-diff slope over [0,0.002] = 35.7986; predicted dM/dt(0+) >= 36.0
+V2-localized(B=10,lambda=1,nu=1) t=0.00000 max|w|grid=119.917857 |w(0)|=119.917857
+V2-localized(B=10,lambda=1,nu=1) t=0.00002 max|w|grid=119.948139 |w(0)|=119.948139
+V2-localized(B=10,lambda=1,nu=1) t=0.00004 max|w|grid=119.977745 |w(0)|=119.977745
+V2-localized(B=10,lambda=1,nu=1) t=0.00006 max|w|grid=120.006712 |w(0)|=120.006712
+V2-localized(B=10,lambda=1,nu=1) t=0.00008 max|w|grid=120.035075 |w(0)|=120.035075
+V2-localized(B=10,lambda=1,nu=1) t=0.00010 max|w|grid=120.062868 |w(0)|=120.062868
+V2-localized(B=10,lambda=1,nu=1) t=0.00012 max|w|grid=120.090120 |w(0)|=120.090120
+V2-localized(B=10,lambda=1,nu=1) t=0.00014 max|w|grid=120.116859 |w(0)|=120.116859
+V2-localized(B=10,lambda=1,nu=1) t=0.00016 max|w|grid=120.143112 |w(0)|=120.143112
+V2-localized(B=10,lambda=1,nu=1) t=0.00018 max|w|grid=120.168902 |w(0)|=120.168902
+V2-localized(B=10,lambda=1,nu=1) t=0.00020 max|w|grid=120.194251 |w(0)|=120.194251
+V2-localized(B=10,lambda=1,nu=1): initial grid M=119.917857 (exact 120.0); finite-diff slope over [0,2e-05] = 1514.1365; predicted dM/dt(0+) >= 1200.0

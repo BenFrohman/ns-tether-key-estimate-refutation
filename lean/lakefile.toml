@@ -1,0 +1,14 @@
+# Copyright 2026 Benjamin Stanley Frohman. Licensed under the Apache License, Version 2.0.
+name = "NSKeyEstimate"
+version = "1.0.0"
+defaultTargets = ["NSKeyEstimate"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.22.0"
+
+# Both modules sit at the project root; this library builds them.
+[[lean_lib]]
+name = "NSKeyEstimate"
+roots = ["FrohmanianTetherDraftAudit", "KeyEstimateRefutation"]

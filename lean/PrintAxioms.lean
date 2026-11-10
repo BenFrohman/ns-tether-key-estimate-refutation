@@ -1,0 +1,55 @@
+-- Copyright 2026 Benjamin Stanley Frohman. Apache-2.0.
+-- Prints the axioms used by every declaration in both modules.
+-- Run from lean/:  lake env lean PrintAxioms.lean
+import FrohmanianTetherDraftAudit
+import KeyEstimateRefutation
+#print axioms FrohmanianTetherDraftAudit.riccati_comparison
+#print axioms FrohmanianTetherDraftAudit.riccati_comparison_global
+#print axioms FrohmanianTetherDraftAudit.riccati_bound_nonneg
+#print axioms FrohmanianTetherDraftAudit.riccati_integral_bound
+#print axioms FrohmanianTetherDraftAudit.DraftRiccatiEstimate
+#print axioms FrohmanianTetherDraftAudit.BKMIntegralBounded
+#print axioms FrohmanianTetherDraftAudit.BKMContinuation
+#print axioms FrohmanianTetherDraftAudit.draftRiccati_implies_BKMIntegralBounded
+#print axioms FrohmanianTetherDraftAudit.conditional_extension
+#print axioms FrohmanianTetherDraftAudit.conditional_no_finite_blowup
+#print axioms FrohmanianTetherDraftAudit.projPerp
+#print axioms FrohmanianTetherDraftAudit.tetherB
+#print axioms FrohmanianTetherDraftAudit.projPerp_self
+#print axioms FrohmanianTetherDraftAudit.tetherB_symm
+#print axioms FrohmanianTetherDraftAudit.tetherB_degenerate_H
+#print axioms FrohmanianTetherDraftAudit.tetherB_diag_ne_zero
+#print axioms FrohmanianTetherDraftAudit.tetherB_not_antisymm
+#print axioms FrohmanianTetherDraftAudit.tetherB_not_antisymm_R2
+#print axioms FrohmanianTetherDraftAudit.tether2Form
+#print axioms FrohmanianTetherDraftAudit.arnold_part_antisymm
+#print axioms FrohmanianTetherDraftAudit.tether2Form_diag_ne_zero
+#print axioms FrohmanianTetherDraftAudit.tether2Form_not_antisymm
+#print axioms FrohmanianTetherDraftAudit.tetherGenerator
+#print axioms FrohmanianTetherDraftAudit.generator_eq_classical
+#print axioms FrohmanianTetherDraftAudit.generator_indep_kappa
+#print axioms FrohmanianTetherDraftAudit.IsTetherFlow
+#print axioms FrohmanianTetherDraftAudit.isTetherFlow_iff
+#print axioms FrohmanianTetherDraftAudit.observable_deriv_indep_kappa
+#print axioms FrohmanianTetherDraftAudit.draftRiccati_tether_iff_classical
+#print axioms FrohmanianTetherDraftAudit.hasDerivAt_tanh
+#print axioms FrohmanianTetherDraftAudit.abs_tanh_lt_one
+#print axioms FrohmanianTetherDraftAudit.tanh_solves_riccati
+#print axioms FrohmanianTetherDraftAudit.tanh_initial_le
+#print axioms FrohmanianTetherDraftAudit.tanh_initial_lt
+#print axioms FrohmanianTetherDraftAudit.tanh_cannot_match_large_data
+#print axioms KeyEstimate.DraftRiccatiEstimate
+#print axioms KeyEstimate.DiniRiccatiEstimate
+#print axioms KeyEstimate.rightDeriv_le_of_touch
+#print axioms KeyEstimate.draftRiccati_false_of_touch
+#print axioms KeyEstimate.diniRiccati_false_of_touch
+#print axioms KeyEstimate.div_free
+#print axioms KeyEstimate.w1_eq
+#print axioms KeyEstimate.w2_eq
+#print axioms KeyEstimate.w3_eq
+#print axioms KeyEstimate.omega_sq_le
+#print axioms KeyEstimate.omega_at_origin
+#print axioms KeyEstimate.omega_norm_bound
+#print axioms KeyEstimate.rhs_origin
+#print axioms KeyEstimate.amplitude_exists
+#print axioms KeyEstimate.localized_family_violation
