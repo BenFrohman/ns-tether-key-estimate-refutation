@@ -89,7 +89,7 @@ cd ns-tether-key-estimate-refutation
 
 ## Reproducibility
 
-- **Source commit:** `SOURCE-COMMIT-PLACEHOLDER`. The Lean files, scripts and `verify.sh` are exactly
+- **Source commit:** `6168deabf889921d3e7502bdd4044a38666a7397`. The Lean files, scripts and `verify.sh` are exactly
   those of this commit. Tag `v1.0.1` adds only the compiled PDF and these recorded hashes. (Tag `v1.0.0` is the original release; v1.0.1 adds the DOI and changes no content.)
 - **Lean:** 4.22.0 (`leanprover/lean4:v4.22.0`, commit `ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05`).
 - **Mathlib:** `v4.22.0`, revision `79e94a093aff4a60fb1b1f92d9681e407124c2ca` (pinned in
