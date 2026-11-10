@@ -1,0 +1,153 @@
+
+==== 1/4 Lean: fetch Mathlib cache and build (Lean 4.22.0, Mathlib v4.22.0) ====
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision '79e94a093aff4a60fb1b1f92d9681e407124c2ca'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'b100ad4c5d74a464f497aaa8e7c74d86bf39a56f'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '99657ad92e23804e279f77ea6dbdeebaa1317b98'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'eb164a46de87078f27640ee71e6c3841defc2484'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '1253a071e6939b0faf5c09d2b30b0bfc79dae407'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '1256a18522728c2eeed6109b02dd2b8f207a2a3c'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '917bfa5064b812b7fbd7112d018ea0b4def25ab3'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '240676e9568c254a69be94801889d4b13f3b249f'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'c682c91d2d4dd59a7187e2ab977ac25bd1f87329'
+✔ [4/20] Built Batteries.Data.String.Basic
+✔ [5/20] Built Cache.Lean
+✔ [6/20] Built Batteries.Data.String.Basic:c.o
+✔ [7/20] Built Cache.Lean:c.o
+✔ [8/20] Built Batteries.Data.Array.Match
+✔ [9/20] Built Batteries.Data.Array.Match:c.o
+✔ [10/20] Built Batteries.Data.String.Matcher
+✔ [11/20] Built Batteries.Data.String.Matcher:c.o
+✔ [12/20] Built Cache.IO
+✔ [13/20] Built Cache.Hashing
+✔ [14/20] Built Cache.Hashing:c.o
+✔ [15/20] Built Cache.IO:c.o
+✔ [16/20] Built Cache.Requests
+✔ [17/20] Built Cache.Main
+✔ [18/20] Built Cache.Requests:c.o
+✔ [19/20] Built Cache.Main:c.o
+✔ [20/20] Built cache:exe
+Current branch: HEAD
+Using cache from origin: leanprover-community/mathlib4
+No files to download
+Decompressing 7067 file(s)
+Unpacked in 7880 ms
+Completed successfully!
+✔ [7083/7085] Built FrohmanianTetherDraftAudit
+ℹ [7084/7085] Built KeyEstimateRefutation
+info: KeyEstimateRefutation.lean:213:0: 'KeyEstimate.rightDeriv_le_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:214:0: 'KeyEstimate.draftRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:215:0: 'KeyEstimate.diniRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:216:0: 'KeyEstimate.div_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:217:0: 'KeyEstimate.w1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:218:0: 'KeyEstimate.w2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:219:0: 'KeyEstimate.w3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:220:0: 'KeyEstimate.omega_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:221:0: 'KeyEstimate.omega_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:222:0: 'KeyEstimate.omega_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:223:0: 'KeyEstimate.rhs_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:224:0: 'KeyEstimate.amplitude_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:225:0: 'KeyEstimate.localized_family_violation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully.
+
+==== 2/4 Lean: forbidden-token scan and #print axioms ====
+Occurrences of sorry/admit/axiom/native_decide/implemented_by/unsafe (expected: one comment line only):
+KeyEstimateRefutation.lean:8:  WHAT IS PROVED HERE (no `sorry`, no custom axioms):
+'FrohmanianTetherDraftAudit.riccati_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.riccati_comparison_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.riccati_bound_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.riccati_integral_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.DraftRiccatiEstimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.BKMIntegralBounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.BKMContinuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.draftRiccati_implies_BKMIntegralBounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FrohmanianTetherDraftAudit.conditional_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.conditional_no_finite_blowup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.projPerp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.projPerp_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherB_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherB_degenerate_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherB_diag_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherB_not_antisymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherB_not_antisymm_R2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tether2Form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.arnold_part_antisymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tether2Form_diag_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tether2Form_not_antisymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tetherGenerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.generator_eq_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.generator_indep_kappa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.IsTetherFlow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.isTetherFlow_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.observable_deriv_indep_kappa' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.draftRiccati_tether_iff_classical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FrohmanianTetherDraftAudit.hasDerivAt_tanh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.abs_tanh_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tanh_solves_riccati' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tanh_initial_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tanh_initial_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FrohmanianTetherDraftAudit.tanh_cannot_match_large_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.DraftRiccatiEstimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.DiniRiccatiEstimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.rightDeriv_le_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.draftRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.diniRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.div_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.w1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.w2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.w3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.omega_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.omega_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.omega_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.rhs_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.amplitude_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.localized_family_violation' depends on axioms: [propext, Classical.choice, Quot.sound]
+declarations checked: 50 ; union of axioms used: [Classical.choice,Quot.sound,propext]
+OK: all 50 declarations use only Lean's standard axioms (no sorryAx).
+
+==== 3/4 Python environment ====
+python-flint 0.9.0 | sympy 1.14.0 | numpy 2.5.4
+
+==== 4/4 Exact symbolic checks (sympy) and rigorous interval certificate (python-flint / Arb) ====
+div U = 0
+Omega = curl U = [0, 2*sin(x)*sin(z), a*(cos(x) + cos(y))]
+|Omega|^2 = a**2*cos(x)**2 + 2*a**2*cos(x)*cos(y) + a**2*cos(y)**2 + 4*sin(x)**2*sin(z)**2
+Omega(0) = [0, 0, 2*a]  S(0) = [[-1, 0, 0], [0, 0, 0], [0, 0, 1]]  U(0) = [0, 0, 0]
+d/dt omega at x*=0, t=0: [0, 0, 2*A*a*(A - nu)]
+a=3: d/dt |omega(0,t)| at t=0 = 6*A*(A - nu) ; M0 = |A Omega(0)| = 6*A
+|Omega|^2 in terms of trig (should be a^2(cx+cy)^2+4 sx^2 sz^2): 0
+4a^2 - a^2(cx+1)^2 - 4(1-cx^2) = -(cx - 1)*(a**2*cx + 3*a**2 - 4*cx - 4)
+div u1 (coefficient of beta) = 0
+rotation-invariance residual (mod cs^2+sn^2=1): 0
+evenness: Q(-x)-Q = 0 ; Q(-z)-Q = 0
+omega1(0) = [0, 0, 12]  (beta(0)=1)
+u1(0) = [0, 0, 0]
+grad u1(0) = [[-1, -6, 0], [6, -1, 0], [0, 0, 2]]
+Laplacian omega1(0) = [0, 0, -120]
+G(0)= 144  deg in t: 8
+grad G(0): 0 0
+Hessian(0): -1152 0 -576
+(I) concavity verified on [-1/8,1/8]^2 with 592 boxes
+(III) tail bound for rho>=1-eta (eta=1/20): G <= [2.77385892342058e-35 +/- 3.24e-50]  (<144: True )
+(II) verified G<144 on all remaining boxes; 4345 interval evaluations
+CERTIFIED: max |omega1|^2 = 144 attained only at the origin; M_1 = ||omega1||_inf = 12
+OK: V1 exact identities and V2 symbolic values reproduced; Arb maximum certificate passed.
+
+ALL CHECKS PASSED. Logs in /tmp/nsrel102-fresh-JqFq/repo/out
+
+real	2m11.819s
+user	3m2.581s
+sys	0m32.703s

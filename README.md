@@ -8,9 +8,10 @@ Benjamin Stanley Frohman · Independent Researcher, Texas, United States ·
 ORCID [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)
 
 Paper: [`paper/ns-key-estimate-refutation.pdf`](paper/ns-key-estimate-refutation.pdf) ·
-Code license: Apache-2.0 · Paper license: CC BY 4.0 · Version 1.0.2
+Code license: Apache-2.0 · Paper license: CC BY 4.0 · Version 1.1.0
 
-**Cite as:** Benjamin Stanley Frohman, *The Riccati Vorticity Estimate M′ ≤ C − kM² Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft*, version 1.0.2, Zenodo, 2026. DOI: [10.5281/zenodo.24102417](https://doi.org/10.5281/zenodo.24102417).
+**Cite as:** Benjamin Stanley Frohman, *The Riccati Vorticity Estimate M′ ≤ C − kM² Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft*, version 1.1.0, Zenodo, 2026. Reserved DOI: [10.5281/zenodo.24121364](https://doi.org/10.5281/zenodo.24121364) (draft, not yet published).
+Version 1.0.2: [10.5281/zenodo.24102417](https://doi.org/10.5281/zenodo.24102417).
 All versions (concept DOI): [10.5281/zenodo.24102220](https://doi.org/10.5281/zenodo.24102220).
 Version 1.0.0: [10.5281/zenodo.24102221](https://doi.org/10.5281/zenodo.24102221).
 
@@ -91,8 +92,7 @@ cd ns-tether-key-estimate-refutation
 
 ## Reproducibility
 
-- **Source commit:** `44da3ff51c3f6145978891516916b068767a6ff6`. The Lean files, scripts and `verify.sh` are exactly
-  those of this commit. Tag `v1.0.2` adds only the compiled PDF and these recorded hashes. (Tag `v1.0.0` is the original release; v1.0.1 and v1.0.2 add DOIs and change no content.)
+- **Source commit (Lean, scripts, `verify.sh`):** `8fef153a12234ac28a311861c20df40e8d45e223`. These files are unchanged through tag `v1.0.0` (`ea9bbc0`), release `v1.0.2`, and current `main` except for the GitHub Actions workflow added in `715626e` (merged as `f504b3c`). Version 1.1.0 adds the certificate artifacts under `artifacts/` and the corresponding paper section; it does not change the mathematics.
 - **Lean:** 4.22.0 (`leanprover/lean4:v4.22.0`, commit `ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05`).
 - **Mathlib:** `v4.22.0`, revision `79e94a093aff4a60fb1b1f92d9681e407124c2ca` (pinned in
   `lean/lake-manifest.json`).
@@ -172,7 +172,8 @@ Output of `cd lean && lake env lean PrintAxioms.lean`, verbatim:
   - `v2_explore.py`: a grid cross-check.
   - `ns_check*.py`: the supporting-only simulations.
   - `logs/`: the original run logs.
-- `paper/`: the LaTeX note and its PDF.
+- `paper/`: the LaTeX note and its PDF, together with `axioms.txt`, `lake_build.log` and `v2_maxcert.log` for verbatim inclusion.
+- `artifacts/`: the v1.1.0 certificate bundle (`out/` logs, local `verify.sh` transcripts, and CI job logs), with `SHA256SUMS`.
 - `provenance/`: the original working reports and build logs, kept for the record.
 
 ## Version history
@@ -182,9 +183,10 @@ Output of `cd lean && lake env lean PrintAxioms.lean`, verbatim:
   Zenodo, and v1.0.2 supersedes it. The mathematical and Lean content is identical.
 - **v1.0.2**: the version carrying its own DOI,
   [10.5281/zenodo.24102417](https://doi.org/10.5281/zenodo.24102417).
+- **v1.1.0**: adds the certificate artifacts (axiom output, Lean build log, Arb certificate result, SHA-256 checksums and CI run links) and a paper section documenting them. Reserved DOI [10.5281/zenodo.24121364](https://doi.org/10.5281/zenodo.24121364) (Zenodo draft, not yet published). The mathematical and Lean content is unchanged from v1.0.0.
 - **All versions** (concept DOI): [10.5281/zenodo.24102220](https://doi.org/10.5281/zenodo.24102220).
 
-v1.0.1 and v1.0.2 add DOI information only. The Lean sources, scripts, `verify.sh` and axiom output are
+v1.0.1 and v1.0.2 add DOI information only. Version 1.1.0 adds artifact logs and documentation only. The Lean sources, scripts, `verify.sh` and axiom output are
 byte-identical to v1.0.0.
 
 ## License

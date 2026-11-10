@@ -1,0 +1,8 @@
+div U = 0
+Omega = curl U = [0, 2*sin(x)*sin(z), a*(cos(x) + cos(y))]
+|Omega|^2 = a**2*cos(x)**2 + 2*a**2*cos(x)*cos(y) + a**2*cos(y)**2 + 4*sin(x)**2*sin(z)**2
+Omega(0) = [0, 0, 2*a]  S(0) = [[-1, 0, 0], [0, 0, 0], [0, 0, 1]]  U(0) = [0, 0, 0]
+d/dt omega at x*=0, t=0: [0, 0, 2*A*a*(A - nu)]
+a=3: d/dt |omega(0,t)| at t=0 = 6*A*(A - nu) ; M0 = |A Omega(0)| = 6*A
+|Omega|^2 in terms of trig (should be a^2(cx+cy)^2+4 sx^2 sz^2): 0
+4a^2 - a^2(cx+1)^2 - 4(1-cx^2) = -(cx - 1)*(a**2*cx + 3*a**2 - 4*cx - 4)

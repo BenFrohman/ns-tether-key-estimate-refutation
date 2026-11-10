@@ -1,0 +1,8 @@
+div u1 (coefficient of beta) = 0
+rotation-invariance residual (mod cs^2+sn^2=1): 0
+evenness: Q(-x)-Q = 0 ; Q(-z)-Q = 0
+omega1(0) = [0, 0, 12]  (beta(0)=1)
+u1(0) = [0, 0, 0]
+grad u1(0) = [[-1, -6, 0], [6, -1, 0], [0, 0, 2]]
+Laplacian omega1(0) = [0, 0, -120]
+G(0)= 144  deg in t: 8

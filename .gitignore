@@ -8,3 +8,9 @@ __pycache__/
 /paper/*.out
 /paper/*.bbl
 /paper/*.blg
+
+# v1.1.0 certificate logs included in the paper / artifacts bundle
+!/paper/lake_build.log
+!/paper/lake_build-display.log
+!/paper/v2_maxcert.log
+!/artifacts/out/v2_sym.pkl

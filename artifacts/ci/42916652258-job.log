@@ -1,0 +1,451 @@
+./verify.sh	UNKNOWN STEP	﻿2026-11-10T22:40:07.9182670Z Current runner version: '2.338.2'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9219814Z ##[group]Runner Image Provisioner
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9221441Z Hosted Compute Agent
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9222536Z Version: 20261028.624
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9223612Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9225373Z Build Date: 2026-10-28T21:51:42Z
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9226698Z Worker ID: {ed2f229f-d2c7-4b29-9d0b-adb7fbeca0e2}
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9228117Z Region: eastus2
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9229223Z Cloud: Azure
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9230303Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9232844Z ##[group]Operating System
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9234017Z Ubuntu
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9235530Z 24.04.5
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9236704Z LTS
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9237623Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9238727Z ##[group]Runner Image
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9239857Z Image: ubuntu-24.04
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9240954Z Version: 20261101.360.1
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9243405Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9246695Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9248491Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9250622Z ##[group]GITHUB_TOKEN Permissions
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9253857Z Contents: read
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9255321Z Metadata: read
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9256381Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9259830Z Secret source: Actions
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9261690Z Cache mode: write
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9262828Z Prepare workflow directory
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9755014Z Prepare all required actions
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:07.9830209Z Getting action download info
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.1481787Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.2407009Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.3181218Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.5399914Z Complete job name: ./verify.sh
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6327150Z ##[group]Run actions/checkout@v4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6328140Z with:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6328774Z   repository: BenFrohman/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6333342Z   token: ***
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6333860Z   ssh-strict: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6334557Z   ssh-user: git
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6335069Z   persist-credentials: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6335624Z   clean: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6336116Z   sparse-checkout-cone-mode: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6336694Z   fetch-depth: 1
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6337176Z   fetch-tags: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6337668Z   show-progress: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6338172Z   lfs: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6338639Z   submodules: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6339166Z   set-safe-directory: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6339732Z   allow-unsafe-pr-checkout: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.6340599Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9471726Z Syncing repository: BenFrohman/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9476465Z ##[group]Getting Git version info
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9479853Z Working directory is '/home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9484712Z [command]/usr/bin/git version
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9612339Z git version 2.56.0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9638913Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9660257Z Temporarily overriding HOME='/home/runner/work/_temp/368e3064-b273-48c3-af90-fcaafe9d395e' before making global git config changes
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9665989Z Adding repository directory to the temporary git global config as a safe directory
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9672784Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9728887Z Deleting the contents of '/home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9762245Z ##[group]Initializing the repository
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9768849Z [command]/usr/bin/git init /home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9943477Z hint: Using 'master' as the name for the initial branch. This default branch name
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9951173Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9956206Z hint: to use in all of your new repositories, which will suppress this warning,
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9959684Z hint: call:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9960948Z hint:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9962320Z hint: 	git config --global init.defaultBranch <name>
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9964108Z hint:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9966352Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9969105Z hint: 'development'. The just-created branch can be renamed via this command:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9971958Z hint:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9973558Z hint: 	git branch -m <name>
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9975354Z hint:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9976990Z hint: Disable this message with "git config set advice.defaultBranchName false"
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9980622Z Initialized empty Git repository in /home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation/.git/
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:08.9986996Z [command]/usr/bin/git remote add origin https://github.com/BenFrohman/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0036328Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0038401Z ##[group]Disabling automatic garbage collection
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0040922Z [command]/usr/bin/git config --local gc.auto 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0081558Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0083894Z ##[group]Setting up auth
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0089130Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0133578Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0648753Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0693881Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0934628Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.0977797Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.1225077Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.1279070Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.1280935Z ##[group]Fetching the repository
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.1294738Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d0bf7f1f2ed835c2f7d47c425d9d5dde6be12cb5:refs/remotes/pull/1/merge
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3636405Z From https://github.com/BenFrohman/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3640390Z  * [new ref]         d0bf7f1f2ed835c2f7d47c425d9d5dde6be12cb5 -> pull/1/merge
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3669219Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3672221Z ##[group]Determining the checkout info
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3675783Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3677586Z [command]/usr/bin/git sparse-checkout disable
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3753296Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3798661Z ##[group]Checking out the ref
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3803720Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/merge
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3901653Z Note: switching to 'refs/remotes/pull/1/merge'.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3903295Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3904848Z You are in 'detached HEAD' state. You can look around, make experimental
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3907105Z changes and commit them, and you can discard any commits you make in this
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3910180Z state without impacting any branches by switching back to a branch.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3912282Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3913589Z If you want to create a new branch to retain commits you create, you may
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3917115Z do so (now or later) by using -c with the switch command. Example:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3919003Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3919679Z   git switch -c <new-branch-name>
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3920914Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3921588Z Or undo this operation with:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3922814Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3923619Z   git switch -
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3924789Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3925913Z Turn off this advice by setting config variable advice.detachedHead to false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3927306Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3928839Z HEAD is now at d0bf7f1 Merge 715626e2de363edd674b458dbb492cfa004c5b03 into a0340837f8b1a12c9d2c55bfccdcc6a0b70197ee
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3933142Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.3982592Z [command]/usr/bin/git log -1 --format=%H
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4022357Z d0bf7f1f2ed835c2f7d47c425d9d5dde6be12cb5
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4395558Z ##[group]Run set -euo pipefail
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4396806Z ^[[36;1mset -euo pipefail^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4398022Z ^[[36;1mTOOLCHAIN="$(cat lean/lean-toolchain)"^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4400146Z ^[[36;1mcurl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4402344Z ^[[36;1m  | sh -s -- -y --default-toolchain "$TOOLCHAIN"^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4403876Z ^[[36;1mecho "$HOME/.elan/bin" >> "$GITHUB_PATH"^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4405692Z ^[[36;1mecho "Installed elan with default toolchain: $TOOLCHAIN"^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4432103Z shell: /usr/bin/bash -e {0}
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.4433203Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.5052271Z info: downloading installer
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7319730Z info: default toolchain set to 'leanprover/lean4:v4.22.0'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7378020Z Installed elan with default toolchain: leanprover/lean4:v4.22.0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7469006Z ##[group]Run cat lean/lean-toolchain
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7470282Z ^[[36;1mcat lean/lean-toolchain^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7471379Z ^[[36;1melan show^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7472327Z ^[[36;1mlake --version^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7473341Z ^[[36;1mlean --version^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7498471Z shell: /usr/bin/bash -e {0}
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7499530Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7565350Z leanprover/lean4:v4.22.0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7585626Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7587745Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7589770Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7592424Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7595695Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7597723Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7599382Z leanprover/lean4:v4.22.0 (default)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7600581Z (toolchain will be installed on first use)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7612198Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7615260Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7617236Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7619186Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7621139Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:09.7623067Z warning: could not canonicalize path: '/home/runner/.elan/toolchains'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:10.2342603Z info: downloading https://releases.lean-lang.org/lean4/v4.22.0/lean-4.22.0-linux.tar.zst
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:13.1300358Z info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.22.0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.3735093Z Lake version 5.0.0-src+ba2cbbf (Lean version 4.22.0)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4268209Z Lean (version 4.22.0, x86_64-unknown-linux-gnu, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05, Release)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4412844Z ##[group]Run actions/setup-python@v5
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4413213Z with:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4413467Z   python-version: 3.13
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4413748Z   check-latest: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4416729Z   token: ***
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4417021Z   update-environment: true
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4417495Z   allow-prereleases: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4417809Z   freethreaded: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.4418083Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.5826675Z ##[group]Installed versions
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.5934785Z (node:2364) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.5936174Z (Use `node --trace-deprecation ...` to show where the warning was created)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.5936980Z Successfully set up CPython (3.13.18)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.5955755Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6088084Z ##[group]Run ./verify.sh
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6088532Z ^[[36;1m./verify.sh^[[0m
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6123212Z shell: /usr/bin/bash -e {0}
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6123496Z env:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6123798Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6124538Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6125166Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6125588Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6126140Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6126553Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6126897Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6266531Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:17.6267765Z ==== 1/4 Lean: fetch Mathlib cache and build (Lean 4.22.0, Mathlib v4.22.0) ====
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:46.2434959Z info: mathlib: cloning https://github.com/leanprover-community/mathlib4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:46.2435989Z info: mathlib: checking out revision '79e94a093aff4a60fb1b1f92d9681e407124c2ca'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:47.3207473Z info: plausible: cloning https://github.com/leanprover-community/plausible
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:47.3208439Z info: plausible: checking out revision 'b100ad4c5d74a464f497aaa8e7c74d86bf39a56f'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:47.5011445Z info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:47.5012535Z info: LeanSearchClient: checking out revision '99657ad92e23804e279f77ea6dbdeebaa1317b98'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:47.7191573Z info: importGraph: cloning https://github.com/leanprover-community/import-graph
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:47.7192534Z info: importGraph: checking out revision 'eb164a46de87078f27640ee71e6c3841defc2484'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:48.7193121Z info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:48.7194484Z info: proofwidgets: checking out revision '1253a071e6939b0faf5c09d2b30b0bfc79dae407'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:49.8686060Z info: aesop: cloning https://github.com/leanprover-community/aesop
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:49.8686719Z info: aesop: checking out revision '1256a18522728c2eeed6109b02dd2b8f207a2a3c'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:50.1011824Z info: Qq: cloning https://github.com/leanprover-community/quote4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:50.1012677Z info: Qq: checking out revision '917bfa5064b812b7fbd7112d018ea0b4def25ab3'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:52.2608225Z info: batteries: cloning https://github.com/leanprover-community/batteries
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:52.2609400Z info: batteries: checking out revision '240676e9568c254a69be94801889d4b13f3b249f'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:52.5105580Z info: Cli: cloning https://github.com/leanprover/lean4-cli
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:52.5106124Z info: Cli: checking out revision 'c682c91d2d4dd59a7187e2ab977ac25bd1f87329'
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:52.9135914Z ✔ [4/20] Built Cache.Lean
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:53.1136187Z ✔ [5/20] Built Cache.Lean:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:53.2129003Z ✔ [6/20] Built Batteries.Data.String.Basic
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:53.3130628Z ✔ [7/20] Built Batteries.Data.String.Basic:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:53.9185787Z ✔ [8/20] Built Batteries.Data.Array.Match
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:54.2158565Z ✔ [9/20] Built Batteries.Data.Array.Match:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:54.3160901Z ✔ [10/20] Built Batteries.Data.String.Matcher
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:54.7165519Z ✔ [11/20] Built Batteries.Data.String.Matcher:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:54.8167321Z ✔ [12/20] Built Cache.IO
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:55.6186487Z ✔ [13/20] Built Cache.Hashing
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:56.9202592Z ✔ [14/20] Built Cache.Hashing:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:57.5209557Z ✔ [15/20] Built Cache.Requests
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:57.5210317Z ✔ [16/20] Built Cache.IO:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:58.2208378Z ✔ [17/20] Built Cache.Main
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:58.9206738Z ✔ [18/20] Built Cache.Main:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:59.2210560Z ✔ [19/20] Built Cache.Requests:c.o
+./verify.sh	UNKNOWN STEP	2026-11-10T22:40:59.5218754Z ✔ [20/20] Built cache:exe
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4759287Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4760227Z                                  Dload  Upload   Total   Spent    Left  Speed
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4760568Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4760787Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4761252Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4761545Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4761758Z 100 1075k  100 1075k    0     0  11.0M      0 --:--:-- --:--:-- --:--:-- 11.0M
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.4762087Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:01.5084273Z installing leantar 0.1.15
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:02.6153020Z Current branch: HEAD
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:02.6153534Z Using cache from origin: leanprover-community/mathlib4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:02.6154646Z Attempting to download 7067 file(s) from leanprover-community/mathlib4 cache
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:03.8261508Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:03.9303474Z Downloaded: 1 file(s) [attempted 1/7067 = 0%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.0316304Z Downloaded: 98 file(s) [attempted 98/7067 = 1%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.1328615Z Downloaded: 226 file(s) [attempted 226/7067 = 3%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.2332864Z Downloaded: 361 file(s) [attempted 361/7067 = 5%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.3336478Z Downloaded: 494 file(s) [attempted 494/7067 = 6%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.4335781Z Downloaded: 629 file(s) [attempted 629/7067 = 8%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.5336328Z Downloaded: 771 file(s) [attempted 771/7067 = 10%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.6350740Z Downloaded: 915 file(s) [attempted 915/7067 = 12%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.7348064Z Downloaded: 1053 file(s) [attempted 1053/7067 = 14%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.8355815Z Downloaded: 1191 file(s) [attempted 1191/7067 = 16%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:04.9368451Z Downloaded: 1323 file(s) [attempted 1323/7067 = 18%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.0376340Z Downloaded: 1465 file(s) [attempted 1465/7067 = 20%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.1376204Z Downloaded: 1607 file(s) [attempted 1607/7067 = 22%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.2377078Z Downloaded: 1750 file(s) [attempted 1750/7067 = 24%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.3378909Z Downloaded: 1882 file(s) [attempted 1882/7067 = 26%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.4380754Z Downloaded: 2022 file(s) [attempted 2022/7067 = 28%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.5386320Z Downloaded: 2166 file(s) [attempted 2166/7067 = 30%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.6403236Z Downloaded: 2306 file(s) [attempted 2306/7067 = 32%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.7400310Z Downloaded: 2443 file(s) [attempted 2443/7067 = 34%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.8408473Z Downloaded: 2585 file(s) [attempted 2585/7067 = 36%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:05.9411319Z Downloaded: 2723 file(s) [attempted 2723/7067 = 38%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.0410217Z Downloaded: 2858 file(s) [attempted 2858/7067 = 40%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.1422300Z Downloaded: 3000 file(s) [attempted 3000/7067 = 42%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.2443898Z Downloaded: 3132 file(s) [attempted 3132/7067 = 44%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.3451977Z Downloaded: 3274 file(s) [attempted 3274/7067 = 46%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.4460360Z Downloaded: 3412 file(s) [attempted 3412/7067 = 48%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.5466437Z Downloaded: 3554 file(s) [attempted 3554/7067 = 50%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.6475926Z Downloaded: 3693 file(s) [attempted 3693/7067 = 52%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.7493572Z Downloaded: 3833 file(s) [attempted 3833/7067 = 54%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.8498052Z Downloaded: 3970 file(s) [attempted 3970/7067 = 56%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:06.9497639Z Downloaded: 4112 file(s) [attempted 4112/7067 = 58%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.0504976Z Downloaded: 4252 file(s) [attempted 4252/7067 = 60%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.1508856Z Downloaded: 4392 file(s) [attempted 4392/7067 = 62%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.2508902Z Downloaded: 4534 file(s) [attempted 4534/7067 = 64%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.3510920Z Downloaded: 4673 file(s) [attempted 4673/7067 = 66%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.4506427Z Downloaded: 4813 file(s) [attempted 4813/7067 = 68%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.5544389Z Downloaded: 4953 file(s) [attempted 4953/7067 = 70%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.6545189Z Downloaded: 5097 file(s) [attempted 5097/7067 = 72%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.7541394Z Downloaded: 5235 file(s) [attempted 5235/7067 = 74%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.8556144Z Downloaded: 5374 file(s) [attempted 5374/7067 = 76%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:07.9557374Z Downloaded: 5514 file(s) [attempted 5514/7067 = 78%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.0565163Z Downloaded: 5654 file(s) [attempted 5654/7067 = 80%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.1555619Z Downloaded: 5793 file(s) [attempted 5793/7067 = 81%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.2558119Z Downloaded: 5931 file(s) [attempted 5931/7067 = 83%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.3560102Z Downloaded: 6077 file(s) [attempted 6077/7067 = 85%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.4569343Z Downloaded: 6217 file(s) [attempted 6217/7067 = 87%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.5568073Z Downloaded: 6354 file(s) [attempted 6354/7067 = 89%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.6575662Z Downloaded: 6496 file(s) [attempted 6496/7067 = 91%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.7566230Z Downloaded: 6629 file(s) [attempted 6629/7067 = 93%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.8598712Z Downloaded: 6769 file(s) [attempted 6769/7067 = 95%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:08.9600858Z Downloaded: 6913 file(s) [attempted 6913/7067 = 97%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:09.2133746Z Downloaded: 7053 file(s) [attempted 7053/7067 = 99%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:09.2482382Z Downloaded: 7065 file(s) [attempted 7065/7067 = 99%]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:09.2482977Z Downloaded: 7067 file(s) [attempted 7067/7067 = 100%] (100% success)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:23.2889279Z Decompressing 7067 file(s)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:23.2889617Z Unpacked in 14020 ms
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:23.2889905Z Completed successfully!
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:34.3680910Z ✔ [7083/7085] Built FrohmanianTetherDraftAudit
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1758567Z ℹ [7084/7085] Built KeyEstimateRefutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1760051Z info: KeyEstimateRefutation.lean:213:0: 'KeyEstimate.rightDeriv_le_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1761964Z info: KeyEstimateRefutation.lean:214:0: 'KeyEstimate.draftRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1763276Z info: KeyEstimateRefutation.lean:215:0: 'KeyEstimate.diniRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1765203Z info: KeyEstimateRefutation.lean:216:0: 'KeyEstimate.div_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1766452Z info: KeyEstimateRefutation.lean:217:0: 'KeyEstimate.w1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1767597Z info: KeyEstimateRefutation.lean:218:0: 'KeyEstimate.w2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1768666Z info: KeyEstimateRefutation.lean:219:0: 'KeyEstimate.w3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1769777Z info: KeyEstimateRefutation.lean:220:0: 'KeyEstimate.omega_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1770936Z info: KeyEstimateRefutation.lean:221:0: 'KeyEstimate.omega_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1772122Z info: KeyEstimateRefutation.lean:222:0: 'KeyEstimate.omega_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1773303Z info: KeyEstimateRefutation.lean:223:0: 'KeyEstimate.rhs_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1775130Z info: KeyEstimateRefutation.lean:224:0: 'KeyEstimate.amplitude_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1776404Z info: KeyEstimateRefutation.lean:225:0: 'KeyEstimate.localized_family_violation' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.1953476Z Build completed successfully.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.2188476Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.2188976Z ==== 2/4 Lean: forbidden-token scan and #print axioms ====
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.2189953Z Occurrences of sorry/admit/axiom/native_decide/implemented_by/unsafe (expected: one comment line only):
+./verify.sh	UNKNOWN STEP	2026-11-10T22:41:43.2203828Z KeyEstimateRefutation.lean:8:  WHAT IS PROVED HERE (no `sorry`, no custom axioms):
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4445806Z 'FrohmanianTetherDraftAudit.riccati_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4450106Z 'FrohmanianTetherDraftAudit.riccati_comparison_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4451206Z 'FrohmanianTetherDraftAudit.riccati_bound_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4452210Z 'FrohmanianTetherDraftAudit.riccati_integral_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4453223Z 'FrohmanianTetherDraftAudit.DraftRiccatiEstimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4454531Z 'FrohmanianTetherDraftAudit.BKMIntegralBounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4455522Z 'FrohmanianTetherDraftAudit.BKMContinuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4456474Z 'FrohmanianTetherDraftAudit.draftRiccati_implies_BKMIntegralBounded' depends on axioms: [propext,
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4457103Z  Classical.choice,
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4457372Z  Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4458003Z 'FrohmanianTetherDraftAudit.conditional_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4459050Z 'FrohmanianTetherDraftAudit.conditional_no_finite_blowup' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4460019Z 'FrohmanianTetherDraftAudit.projPerp' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4460884Z 'FrohmanianTetherDraftAudit.tetherB' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4461767Z 'FrohmanianTetherDraftAudit.projPerp_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4462671Z 'FrohmanianTetherDraftAudit.tetherB_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4463480Z 'FrohmanianTetherDraftAudit.tetherB_degenerate_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4482833Z 'FrohmanianTetherDraftAudit.tetherB_diag_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4483664Z 'FrohmanianTetherDraftAudit.tetherB_not_antisymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4484878Z 'FrohmanianTetherDraftAudit.tetherB_not_antisymm_R2' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4485639Z 'FrohmanianTetherDraftAudit.tether2Form' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4486374Z 'FrohmanianTetherDraftAudit.arnold_part_antisymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4487143Z 'FrohmanianTetherDraftAudit.tether2Form_diag_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4487936Z 'FrohmanianTetherDraftAudit.tether2Form_not_antisymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4488705Z 'FrohmanianTetherDraftAudit.tetherGenerator' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4489473Z 'FrohmanianTetherDraftAudit.generator_eq_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4490497Z 'FrohmanianTetherDraftAudit.generator_indep_kappa' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4491256Z 'FrohmanianTetherDraftAudit.IsTetherFlow' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4491996Z 'FrohmanianTetherDraftAudit.isTetherFlow_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4492781Z 'FrohmanianTetherDraftAudit.observable_deriv_indep_kappa' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4493532Z 'FrohmanianTetherDraftAudit.draftRiccati_tether_iff_classical' depends on axioms: [propext,
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4494009Z  Classical.choice,
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4494564Z  Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4495022Z 'FrohmanianTetherDraftAudit.hasDerivAt_tanh' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4495896Z 'FrohmanianTetherDraftAudit.abs_tanh_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4496648Z 'FrohmanianTetherDraftAudit.tanh_solves_riccati' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4497394Z 'FrohmanianTetherDraftAudit.tanh_initial_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4498109Z 'FrohmanianTetherDraftAudit.tanh_initial_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4498865Z 'FrohmanianTetherDraftAudit.tanh_cannot_match_large_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4499596Z 'KeyEstimate.DraftRiccatiEstimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4500248Z 'KeyEstimate.DiniRiccatiEstimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:03.4500892Z 'KeyEstimate.rightDeriv_le_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6365811Z 'KeyEstimate.draftRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6366691Z 'KeyEstimate.diniRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6367349Z 'KeyEstimate.div_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6367897Z 'KeyEstimate.w1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6368416Z 'KeyEstimate.w2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6368927Z 'KeyEstimate.w3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6369475Z 'KeyEstimate.omega_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6370069Z 'KeyEstimate.omega_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6370676Z 'KeyEstimate.omega_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6371278Z 'KeyEstimate.rhs_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6371864Z 'KeyEstimate.amplitude_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.6372514Z 'KeyEstimate.localized_family_violation' depends on axioms: [propext, Classical.choice, Quot.sound]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.7455949Z declarations checked: 50 ; union of axioms used: [Classical.choice,Quot.sound,propext]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.7457350Z OK: all 50 declarations use only Lean's standard axioms (no sorryAx).
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.7458076Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:10.7458217Z ==== 3/4 Python environment ====
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:24.0930994Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:24.0931633Z [notice] A new release of pip is available: 26.2.2 -> 26.3
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:24.0932980Z [notice] To update, run: /home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation/.venv/bin/python3 -m pip install --upgrade pip
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:24.5135421Z python-flint 0.9.0 | sympy 1.14.0 | numpy 2.5.4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:24.5724653Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:24.5725285Z ==== 4/4 Exact symbolic checks (sympy) and rigorous interval certificate (python-flint / Arb) ====
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1075024Z div U = 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1075545Z Omega = curl U = [0, 2*sin(x)*sin(z), a*(cos(x) + cos(y))]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1076390Z |Omega|^2 = a**2*cos(x)**2 + 2*a**2*cos(x)*cos(y) + a**2*cos(y)**2 + 4*sin(x)**2*sin(z)**2
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1077159Z Omega(0) = [0, 0, 2*a]  S(0) = [[-1, 0, 0], [0, 0, 0], [0, 0, 1]]  U(0) = [0, 0, 0]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1077752Z d/dt omega at x*=0, t=0: [0, 0, 2*A*a*(A - nu)]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1078323Z a=3: d/dt |omega(0,t)| at t=0 = 6*A*(A - nu) ; M0 = |A Omega(0)| = 6*A
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1078995Z |Omega|^2 in terms of trig (should be a^2(cx+cy)^2+4 sx^2 sz^2): 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:25.1079650Z 4a^2 - a^2(cx+1)^2 - 4(1-cx^2) = -(cx - 1)*(a**2*cx + 3*a**2 - 4*cx - 4)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6098795Z div u1 (coefficient of beta) = 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6099865Z rotation-invariance residual (mod cs^2+sn^2=1): 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6100647Z evenness: Q(-x)-Q = 0 ; Q(-z)-Q = 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6101235Z omega1(0) = [0, 0, 12]  (beta(0)=1)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6101766Z u1(0) = [0, 0, 0]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6102268Z grad u1(0) = [[-1, -6, 0], [6, -1, 0], [0, 0, 2]]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6102934Z Laplacian omega1(0) = [0, 0, -120]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:26.6103299Z G(0)= 144  deg in t: 8
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.8908921Z grad G(0): 0 0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.8909474Z Hessian(0): -1152 0 -576
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.8910096Z (I) concavity verified on [-1/8,1/8]^2 with 592 boxes
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.8911036Z (III) tail bound for rho>=1-eta (eta=1/20): G <= [2.77385892342058e-35 +/- 3.24e-50]  (<144: True )
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.8911952Z (II) verified G<144 on all remaining boxes; 4345 interval evaluations
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.8912817Z CERTIFIED: max |omega1|^2 = 144 attained only at the origin; M_1 = ||omega1||_inf = 12
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9466526Z OK: V1 exact identities and V2 symbolic values reproduced; Arb maximum certificate passed.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9466974Z 
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9467383Z ALL CHECKS PASSED. Logs in /home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation/out
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9535934Z ##[group]Run actions/upload-artifact@v4
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9536258Z with:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9536460Z   name: verify-logs
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9536677Z   path: out/
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9536889Z   if-no-files-found: error
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9537135Z   compression-level: 6
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9537360Z   overwrite: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9537580Z   include-hidden-files: false
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9537820Z env:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9538082Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9538527Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib/pkgconfig
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9538966Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9539362Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9539752Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.18/x64
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9540164Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.18/x64/lib
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:27.9540537Z ##[endgroup]
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.1269861Z (node:3000) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.1270754Z (Use `node --trace-deprecation ...` to show where the warning was created)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.1365738Z With the provided path, there will be 6 files uploaded
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.1367192Z Artifact name is valid!
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.1367840Z Root directory input is valid!
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.3568861Z Beginning upload of artifact content to blob storage
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.3917095Z (node:3000) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.4369483Z Uploaded bytes 2963
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.4565874Z Finished uploading artifact content to blob storage!
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.4567187Z SHA256 digest of uploaded artifact zip is ede0ddb6e7b9bcc2af6535df81f3f0523b5cafa0c719347548070089f8112b37
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.4569381Z Finalizing artifact upload
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.8008705Z Artifact verify-logs.zip successfully finalized. Artifact ID 13809896569
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.8010094Z Artifact verify-logs has been successfully uploaded! Final size is 2963 bytes. Artifact ID is 13809896569
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.8017199Z Artifact download URL: https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/42916652258/artifacts/13809896569
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.8214893Z Post job cleanup.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.9430492Z (node:3013) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.9431597Z (Use `node --trace-deprecation ...` to show where the warning was created)
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:28.9673648Z Post job cleanup.
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0630476Z [command]/usr/bin/git version
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0733530Z git version 2.56.0
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0779706Z Temporarily overriding HOME='/home/runner/work/_temp/c463a529-4d3e-43e0-963b-c101841bb6a2' before making global git config changes
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0786963Z Adding repository directory to the temporary git global config as a safe directory
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0801133Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ns-tether-key-estimate-refutation/ns-tether-key-estimate-refutation
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0876687Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.0929753Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.1248010Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.1291468Z http.https://github.com/.extraheader
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.1302600Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.1342639Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.1615986Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.1665655Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.2070641Z Cleaning up orphan processes
+./verify.sh	UNKNOWN STEP	2026-11-10T22:42:29.2555991Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
