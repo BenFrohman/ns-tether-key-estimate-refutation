@@ -31,5 +31,6 @@
       "relation": "isSupplementedBy",
       "resource_type": "software"
     }
-  ]
+  ],
+  "version": "1.0.1"
 }

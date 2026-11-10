@@ -2,11 +2,15 @@
 
 **An explicit counterexample and a Lean-checked audit of the symplectic-tether draft**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24102221.svg)](https://doi.org/10.5281/zenodo.24102221)
+
 Benjamin Stanley Frohman · Independent Researcher, Texas, United States ·
 ORCID [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)
 
 Paper: [`paper/ns-key-estimate-refutation.pdf`](paper/ns-key-estimate-refutation.pdf) ·
-Code license: Apache-2.0 · Paper license: CC BY 4.0
+Code license: Apache-2.0 · Paper license: CC BY 4.0 · Version 1.0.1
+
+**Cite as:** Benjamin Stanley Frohman, *The Riccati Vorticity Estimate M′ ≤ C − kM² Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft*, Zenodo, 2026. DOI: [10.5281/zenodo.24102221](https://doi.org/10.5281/zenodo.24102221)
 
 > **Scope.** This repository does **not** prove or disprove global regularity of the 3D Navier–Stokes
 > equations, and it makes **no claim about the Clay Millennium Problem**. It shows that one specific
@@ -85,8 +89,8 @@ cd ns-tether-key-estimate-refutation
 
 ## Reproducibility
 
-- **Source commit:** `8fef153a12234ac28a311861c20df40e8d45e223`. The Lean files, scripts and `verify.sh` are exactly
-  those of this commit. Tag `v1.0.0` adds only the compiled PDF and these recorded hashes.
+- **Source commit:** `SOURCE-COMMIT-PLACEHOLDER`. The Lean files, scripts and `verify.sh` are exactly
+  those of this commit. Tag `v1.0.1` adds only the compiled PDF and these recorded hashes. (Tag `v1.0.0` is the original release; v1.0.1 adds the DOI and changes no content.)
 - **Lean:** 4.22.0 (`leanprover/lean4:v4.22.0`, commit `ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05`).
 - **Mathlib:** `v4.22.0`, revision `79e94a093aff4a60fb1b1f92d9681e407124c2ca` (pinned in
   `lean/lake-manifest.json`).
