@@ -5,7 +5,7 @@
 \usepackage{booktabs}
 \usepackage{fancyvrb}
 \usepackage[hidelinks]{hyperref}
-\newcommand{\SourceCommit}{44da3ff51c3f6145978891516916b068767a6ff6}
+\newcommand{\SourceCommit}{8fef153a12234ac28a311861c20df40e8d45e223}
 \newcommand{\T}{\mathbb{T}^3}
 \newcommand{\R}{\mathbb{R}}
 \newtheorem{theorem}{Theorem}
@@ -18,11 +18,11 @@
 
 \title{The Riccati Vorticity Estimate $M' \le C - kM^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$:\\
 An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}
-\author{Benjamin Stanley Frohman\thanks{This version (1.0.2): DOI \href{https://doi.org/10.5281/zenodo.24102417}{10.5281/zenodo.24102417}. All versions (concept DOI): \href{https://doi.org/10.5281/zenodo.24102220}{10.5281/zenodo.24102220}. Version 1.0.0: DOI \href{https://doi.org/10.5281/zenodo.24102221}{10.5281/zenodo.24102221}. Versions 1.0.1 and 1.0.2 add the DOIs only; the mathematical content is unchanged from version 1.0.0.}\\
+\author{Benjamin Stanley Frohman\thanks{This version (1.1.0): reserved DOI \href{https://doi.org/10.5281/zenodo.24121364}{10.5281/zenodo.24121364} (Zenodo draft, not yet published). All versions (concept DOI): \href{https://doi.org/10.5281/zenodo.24102220}{10.5281/zenodo.24102220}. Version 1.0.2: DOI \href{https://doi.org/10.5281/zenodo.24102417}{10.5281/zenodo.24102417}. Version 1.0.0: DOI \href{https://doi.org/10.5281/zenodo.24102221}{10.5281/zenodo.24102221}. Version 1.1.0 adds the certificate artifacts (axiom output, Lean build log, Arb certificate result, SHA-256 checksums and CI links). The mathematical content is unchanged from version 1.0.0.}\\
 \small Independent Researcher, Texas, United States\\
 \small ORCID \href{https://orcid.org/0009-0006-7068-3718}{0009-0006-7068-3718} \quad
 \small \href{mailto:frohmanbenjamin@gmail.com}{frohmanbenjamin@gmail.com}}
-\date{10 November 2026 \quad (version 1.0.2)}
+\date{10 November 2026 \quad (version 1.1.0)}
 
 \sloppy
 \begin{document}
@@ -224,13 +224,17 @@ $35.80$ against the exact $36$. For the localized field with $B=10$, $\lambda=1$
 against the exact $1200$. The $128^3$ run is under-resolved.
 
 \section{Reproducibility}
-\textbf{Cite as:} B.~S.~Frohman, \emph{The Riccati Vorticity Estimate $M'\le C-kM^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}, version 1.0.2, Zenodo, 2026, \href{https://doi.org/10.5281/zenodo.24102417}{doi:10.5281/zenodo.24102417}. All versions: \href{https://doi.org/10.5281/zenodo.24102220}{doi:10.5281/zenodo.24102220}.
+\textbf{Cite as:} B.~S.~Frohman, \emph{The Riccati Vorticity Estimate $M'\le C-kM^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}, version 1.1.0, Zenodo, 2026, reserved DOI \href{https://doi.org/10.5281/zenodo.24121364}{doi:10.5281/zenodo.24121364} (draft, not yet published). Version 1.0.2: \href{https://doi.org/10.5281/zenodo.24102417}{doi:10.5281/zenodo.24102417}. All versions: \href{https://doi.org/10.5281/zenodo.24102220}{doi:10.5281/zenodo.24102220}.
 
 Repository:
 \begin{center}\url{https://github.com/BenFrohman/ns-tether-key-estimate-refutation}\end{center}
 The Lean sources, scripts and
-\texttt{verify.sh} are those of commit \texttt{\SourceCommit}. Tag \texttt{v1.0.2} adds only this PDF and the
-recorded hashes. Toolchain: Lean 4.22.0 (commit \texttt{ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05}); Mathlib
+\texttt{verify.sh} are exactly those of commit \texttt{8fef153a12234ac28a311861c20df40e8d45e223}.
+That commit is included in tag \texttt{v1.0.0} (\texttt{ea9bbc0}) and in release \texttt{v1.0.2}.
+It is unchanged through current \texttt{main} except for the GitHub Actions workflow added in
+commit \texttt{715626e2de363edd674b458dbb492cfa004c5b03} (merged as \texttt{f504b3c}).
+Tag \texttt{v1.0.2} added only the version~1.0.2 PDF and DOI; version~1.1.0 adds the certificate
+artifacts documented in Section~\ref{sec:artifacts}. Toolchain: Lean 4.22.0 (commit \texttt{ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05}); Mathlib
 \texttt{v4.22.0}, revision \texttt{79e94a093aff4a60fb1b1f92d9681e407124c2ca}; Python 3.13.5 with python-flint 0.9.0,
 sympy 1.14.0, mpmath 1.3.0 and numpy 2.5.4. One command:
 \begin{verbatim}
@@ -241,6 +245,58 @@ cd ns-tether-key-estimate-refutation
 Output of \texttt{lake env lean PrintAxioms.lean}, verbatim:
 {\fontsize{6.5}{7.5}\selectfont
 \VerbatimInput{axioms.txt}
+}
+
+\section{Artifacts and reproducibility}\label{sec:artifacts}
+This section records the certificate logs from the 10~November~2026 verification run.
+It does not change any mathematical claim of Sections~1--6.
+
+The Lean axiom output \texttt{axioms.log}, the Lean build log \texttt{lake\_build.log}, the Arb
+certificate result \texttt{v2\_maxcert.log}, and the companion sympy logs
+\texttt{v1\_trig\_example.log}, \texttt{v2\_symbolic.log} are byte-identical across the local morning
+\texttt{./verify.sh} runs and the GitHub Actions \texttt{verify-logs} artifacts of runs
+\href{https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/42916652258}{42916652258}
+(pull request~\#1) and
+\href{https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/42916649801}{42916649801}
+(push of \texttt{ci/rebuild-verify}, commit \texttt{715626e}). The CI runs built that commit, which
+differs from the Lean sources only by adding \texttt{.github/workflows/verify.yml}.
+SHA-256 checksums:
+{\fontsize{6}{7.2}\selectfont
+\begin{verbatim}
+0f96cd25e33cd00a70e85307c5ee9befc626e4d8a6a81e2447cef11c7ce44825  axioms.log
+5d5505e300911a4e62291ef3c5b76f402ca575b8c1d04936c6844fece3c47ab3  lake_build.log
+659bbb570ac0bfab577ab1aa87c34ebbb96db3a505f1ffff1cadef38013b9727  v2_maxcert.log
+f8b6611fccc794382df28e8eae925f1f201c8e1ac038509bcc3bdd06eb38f1df  v1_trig_example.log
+9fb14bda19ba53e3635c93b2008219d47616f43c13a5eff119b81ada440df6be  v2_symbolic.log
+542bfc3b4c74bf37819885886213e78b944428678accb4afed14efbabf388b4c  v2_sym.pkl
+\end{verbatim}
+}
+The full \texttt{./verify.sh} transcripts and the CI job logs are not byte-identical to one another
+(they record local output paths, and the CI logs include runner timestamps). Their SHA-256
+checksums are listed in \texttt{artifacts/SHA256SUMS}.
+
+Lean build log (\texttt{lake build}). The deposited file \texttt{lake\_build.log} begins with
+U+2714 (CHECK MARK) and U+2139 (INFORMATION SOURCE) on the first two lines; those two
+characters are written \texttt{[ok]} and \texttt{[i]} below so they render in this PDF. The
+SHA-256 above is of the unmodified file.
+{\fontsize{6.5}{7.5}\selectfont
+\VerbatimInput{lake_build-display.log}
+}
+
+Certificate result log (\texttt{scripts/v2\_maxcert.py} / python-flint Arb, verbatim):
+{\fontsize{6.5}{7.5}\selectfont
+\VerbatimInput{v2_maxcert.log}
+}
+
+The closing lines of every successful \texttt{./verify.sh} run (the output directory on the last
+line is run-dependent) were
+{\fontsize{6.5}{7.5}\selectfont
+\begin{verbatim}
+CERTIFIED: max |omega1|^2 = 144 attained only at the origin; M_1 = ||omega1||_inf = 12
+OK: V1 exact identities and V2 symbolic values reproduced; Arb maximum certificate passed.
+
+ALL CHECKS PASSED. Logs in <out-dir>
+\end{verbatim}
 }
 
 \begin{thebibliography}{9}
