@@ -175,6 +175,18 @@ Output of `cd lean && lake env lean PrintAxioms.lean`, verbatim:
 - `paper/`: the LaTeX note and its PDF.
 - `provenance/`: the original working reports and build logs, kept for the record.
 
+## Version history
+
+- **v1.0.0**: published on Zenodo as [10.5281/zenodo.24102221](https://doi.org/10.5281/zenodo.24102221).
+- **v1.0.1**: an intermediate GitHub tag. Its paper printed the v1.0.0 DOI. It was never deposited on
+  Zenodo, and v1.0.2 supersedes it. The mathematical and Lean content is identical.
+- **v1.0.2**: the version carrying its own DOI,
+  [10.5281/zenodo.24102417](https://doi.org/10.5281/zenodo.24102417).
+- **All versions** (concept DOI): [10.5281/zenodo.24102220](https://doi.org/10.5281/zenodo.24102220).
+
+v1.0.1 and v1.0.2 add DOI information only. The Lean sources, scripts, `verify.sh` and axiom output are
+byte-identical to v1.0.0.
+
 ## License
 
 The code is licensed under Apache-2.0 ([LICENSE](LICENSE)). The paper and prose are licensed under
