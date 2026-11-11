@@ -193,3 +193,7 @@ byte-identical to v1.0.0.
 
 The code is licensed under Apache-2.0 ([LICENSE](LICENSE)). The paper and prose are licensed under
 CC BY 4.0 ([LICENSE-paper](LICENSE-paper)). See [NOTICE](NOTICE) and [CITATION.cff](CITATION.cff).
+
+## Copyright
+
+© 2026 Benjamin Stanley Frohman.
