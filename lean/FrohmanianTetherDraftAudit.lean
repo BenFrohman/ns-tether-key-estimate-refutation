@@ -1,29 +1,16 @@
 /-
 Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
-Released under the Apache License, Version 2.0.
-Author: Benjamin Stanley Frohman
-
-FrohmanianTetherDraftAudit.lean
-
-Audit formalization of the TRUE logical content of the draft
-"Global Regularity for the 3D Incompressible Navier–Stokes Equations via the
-Frohmanian Symplectic Tether".
-
-SCOPE NOTE (read first):
-* This file does NOT prove global regularity of the 3D incompressible
-  Navier–Stokes equations, and makes no claim about the Clay Millennium Problem.
-* The draft's key a-priori estimate  M' ≤ C − k·M²  for the vorticity sup-norm
-  is carried as an EXPLICIT, NAMED, OPEN HYPOTHESIS (`DraftRiccatiEstimate`).
-  It is not derived from Navier–Stokes anywhere in this file.
-* The BKM continuation criterion is likewise an explicit named hypothesis
-  (`BKMContinuation`), not proved here.
-* Part 1 proves, with no gaps, the conditional chain
-  "Riccati estimate + BKM criterion ⇒ the solution extends past every finite T*".
-* Part 2 machine-checks refutations of several claims made in the draft
-  (antisymmetry/symplecticity of the tether, tether-supplied feedback, and the
-  generality of the tanh formula).
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Stanley Frohman
 -/
+
 import Mathlib
+
+/-!
+# lean.FrohmanianTetherDraftAudit
+
+Machine-checked Lean 4 module.
+-/
 
 open Set MeasureTheory intervalIntegral Filter
 open scoped Topology Matrix

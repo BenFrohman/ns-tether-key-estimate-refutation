@@ -1,4 +1,10 @@
 /-
+Copyright (c) 2026 Benjamin Stanley Frohman. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Benjamin Stanley Frohman
+-/
+
+/-
   KeyEstimateRefutation.lean  —  Benjamin Stanley Frohman, 2026-11-09.
 
   Machine-checked parts of the refutation of the "key estimate"
@@ -25,6 +31,12 @@
     arithmetic (python-flint/Arb), not in Lean.
 -/
 import Mathlib
+
+/-!
+# lean.KeyEstimateRefutation
+
+Machine-checked Lean 4 module.
+-/
 
 open Set Filter Topology Real
 
