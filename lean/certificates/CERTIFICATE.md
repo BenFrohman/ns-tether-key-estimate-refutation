@@ -5,13 +5,16 @@ This file records a reproducible machine check of the Lean 4 development in this
 | Item | Value |
 |---|---|
 | Repository | https://github.com/BenFrohman/ns-tether-key-estimate-refutation |
-| Certified commit | `a22f979a4d5b27d83fba7e183ba8e43b20b35425` (branch `certs/kernel-certificate-9ca3201`) |
-| Lean sources | identical to `main` at `9ca3201638eccfebd6b0dfa3e230c81b5f01055d`: no `.lean`, lakefile, manifest or toolchain file differs; the certified commit only adds CI and the scripts in `lean/certificates/tools/` |
+| Certified commit | `fafda8ee708381116de864d062e479d9692c69d2` (branch `fix/textbook-notation-20261116`) |
+| Lean sources | `.lean`, lakefile, manifest and toolchain files exactly as at the certified commit; the commit that adds this certificate changes only files under `lean/certificates/` |
+| lake | Lake version 5.0.0-src+ba2cbbf (Lean version 4.22.0) |
+| elan | installed in CI by `elan-init.sh` from leanprover/elan (master), toolchain taken from `lean-toolchain`; the workflow does not print the elan version |
+| lake-manifest.json sha256 | `2dcd77f771f6f5080b5b4b83db2f22f66071c37baaf044afbcf9b3b78d305672` |
 | lean-toolchain | `leanprover/lean4:v4.22.0` |
 | Lean | Lean (version 4.22.0, x86_64-unknown-linux-gnu, commit ba2cbbf09d4978f416e0ebd1fceeebc2c4138c05, Release) |
 | Mathlib | `79e94a093aff4a60fb1b1f92d9681e407124c2ca` (lake-manifest.json; inputRev `v4.22.0`) |
-| Date (UTC) | 2026-11-17T02:16:38Z |
-| CI run | https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/44001457622 |
+| Date (UTC) | 2026-11-17T06:49:55Z |
+| CI run | https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/44034087402 |
 | `lake build` | `Build completed successfully.` ([build.log](build.log)) |
 | sorry / admit / native_decide / axiom scan | `RESULT: 0 hits` ([sorry-scan.txt](sorry-scan.txt)) |
 | `#print axioms` | `AUDIT PASS: 52 theorems in 2 modules depend only on propext, Classical.choice, Quot.sound (or on no axioms)` ([axioms.txt](axioms.txt)) |
@@ -74,19 +77,19 @@ Full `#print axioms` output (verbatim from `axioms.txt`):
 'KeyEstimate.rhs.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
 'KeyEstimate.rhs_origin' depends on axioms: [propext, Quot.sound, Classical.choice]
 'KeyEstimate.rightDeriv_le_of_touch' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.u1.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.u2.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.u3.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.w1.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.w1_eq' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.w2.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.w2_eq' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.w3.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
-'KeyEstimate.w3_eq' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.u₁.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.u₂.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.u₃.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.ω₁.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.ω₁_eq' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.ω₂.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.ω₂_eq' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.ω₃.eq_1' depends on axioms: [propext, Quot.sound, Classical.choice]
+'KeyEstimate.ω₃_eq' depends on axioms: [propext, Quot.sound, Classical.choice]
 ```
 
 ## Rebuild
 
 ```
-git clone https://github.com/BenFrohman/ns-tether-key-estimate-refutation.git && cd ns-tether-key-estimate-refutation && git checkout a22f979a4d5b27d83fba7e183ba8e43b20b35425 && cd lean && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+git clone https://github.com/BenFrohman/ns-tether-key-estimate-refutation.git && cd ns-tether-key-estimate-refutation && git checkout fafda8ee708381116de864d062e479d9692c69d2 && cd lean && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
 ```
