@@ -16,7 +16,7 @@
 \usepackage{xurl}
 \newcommand{\lean}[1]{\path{#1}}
 
-\title{The Riccati Vorticity Estimate $M' \le C - kM^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$:\\
+\title{The Riccati Vorticity Estimate $\frac{d}{dt}\|\omega\|_{L^\infty}\le C-k\|\omega\|_{L^\infty}^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$:\\
 An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}
 \author{Benjamin Stanley Frohman\thanks{This version (1.1.0): reserved DOI \href{https://doi.org/10.5281/zenodo.24121364}{10.5281/zenodo.24121364} (Zenodo draft, not yet published). All versions (concept DOI): \href{https://doi.org/10.5281/zenodo.24102220}{10.5281/zenodo.24102220}. Version 1.0.2: DOI \href{https://doi.org/10.5281/zenodo.24102417}{10.5281/zenodo.24102417}. Version 1.0.0: DOI \href{https://doi.org/10.5281/zenodo.24102221}{10.5281/zenodo.24102221}. Version 1.1.0 adds the certificate artifacts (axiom output, Lean build log, Arb certificate result, SHA-256 checksums and CI links). The mathematical content is unchanged from version 1.0.0.}\\
 \small Independent Researcher, Texas, United States\\
@@ -31,7 +31,7 @@ An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Dra
 \begin{abstract}
 An earlier unpublished draft by the author claimed global regularity for the 3D incompressible
 Navier--Stokes equations via a ``symplectic tether''. Its central step was an a-priori Riccati estimate
-$M'(t)\le C-kM(t)^2$ for the vorticity sup-norm $M(t)=\|\omega(\cdot,t)\|_{L^\infty}$. We show that this estimate is
+$\frac{d}{dt}\|\omega(\cdot,t)\|_{L^\infty}\le C-k\|\omega(\cdot,t)\|_{L^\infty}^2$ for the $L^\infty$ norm of the vorticity $\omega=\nabla\times u$. We show that this estimate is
 false on $\T$ when $C,k$ depend only on the viscosity $\nu$. We do this with an explicit trigonometric initial
 datum whose peak vorticity strictly increases at $t=0$. We also show it is false when $C,k$ may depend in an
 arbitrary way on $\nu$ and the kinetic energy, or on $\nu$ and $\|u_0\|_{L^3}$, by a scaled localized vortex. If the constants may
@@ -51,13 +51,13 @@ $\partial_t u+(u\cdot\nabla)u+\nabla p=\nu\Delta u$, $\nabla\cdot u=0$, with vor
 \begin{equation}\label{eq:vort}
 \partial_t\omega=(\omega\cdot\nabla)u-(u\cdot\nabla)\omega+\nu\Delta\omega .
 \end{equation}
-Put $M(t)=\|\omega(\cdot,t)\|_{L^\infty}$. The draft's \emph{key estimate} is
+The draft's \emph{key estimate} for the vorticity $L^\infty$ norm $\|\omega(\cdot,t)\|_{L^\infty}$ is
 \begin{equation}\label{eq:key}
-M'(t)\le C-k\,M(t)^2\quad\text{on }[0,T),\qquad C\ge0,\ k>0 .
+\frac{d}{dt}\|\omega(\cdot,t)\|_{L^\infty}\le C-k\,\|\omega(\cdot,t)\|_{L^\infty}^2\quad\text{on }[0,T),\qquad C\ge0,\ k>0 .
 \end{equation}
-Since $M$ is in general only Lipschitz, we refute both the differentiable form (\lean{DraftRiccatiEstimate})
-and the weaker form with the upper right Dini derivative, $D^+M\le C-kM^2$ (\lean{DiniRiccatiEstimate}). Any
-of these forms forces $M$ to be non-increasing wherever $M>\sqrt{C/k}$.
+Since $t\mapsto\|\omega(\cdot,t)\|_{L^\infty}$ is in general only Lipschitz, we refute both the differentiable form (\lean{DraftRiccatiEstimate})
+and the weaker form with the upper right Dini derivative, $D^+\|\omega\|_{L^\infty}\le C-k\|\omega\|_{L^\infty}^2$ (\lean{DiniRiccatiEstimate}). Any
+of these forms forces $\|\omega(\cdot,t)\|_{L^\infty}$ to be non-increasing wherever $\|\omega(\cdot,t)\|_{L^\infty}>\sqrt{C/k}$.
 
 \begin{center}
 \begin{tabular}{lll}
@@ -75,8 +75,8 @@ V3 & $u_0$ arbitrarily & equivalent to global regularity: \textbf{open}\\
 \begin{lemma}[touching lemma]\label{lem:touch}
 (Lean: \lean{rightDeriv_le_of_touch}, \lean{draftRiccati_false_of_touch},
 \lean{diniRiccati_false_of_touch}.)
-Let $T>0$ and $g\le M$ on $[0,T)$ with $g(0)=M(0)$, and let $g$ have right derivative $r$ at $0$. If
-$r>C-kM(0)^2$, then neither form of \eqref{eq:key} holds on $[0,T)$.
+Let $T>0$ and $g(t)\le\|\omega(\cdot,t)\|_{L^\infty}$ on $[0,T)$ with $g(0)=\|\omega(\cdot,0)\|_{L^\infty}$, and let $g$ have right derivative $r$ at $0$. If
+$r>C-k\|\omega(\cdot,0)\|_{L^\infty}^2$, then neither form of \eqref{eq:key} holds on $[0,T)$.
 \end{lemma}
 
 \section{V1: an explicit counterexample}
@@ -85,20 +85,20 @@ Let
 U(x,y,z)=3(-\sin y,\ \sin x,\ 0)+(-\sin x\cos z,\ 0,\ \cos x\sin z),\qquad u_0=A\,U,\ A>0 .
 \]
 \begin{proposition}\label{prop:U}
-(Lean: \lean{div_free}, \lean{w1_eq}--\lean{w3_eq}, \lean{omega_sq_le},
+(Lean: \lean{div_free}, \lean{ω₁_eq}--\lean{ω₃_eq}, \lean{omega_sq_le},
 \lean{omega_at_origin}, \lean{omega_norm_bound}, \lean{rhs_origin}.)
 \begin{enumerate}
-\item[(a)] $\nabla\cdot U=0$ and $\Omega:=\nabla\times U=(0,\ 2\sin x\sin z,\ 3(\cos x+\cos y))$.
-\item[(b)] $|\Omega|^2=9(\cos x+\cos y)^2+4\sin^2x\sin^2z\le36$, with equality at the origin. So
-$M(0)=\|A\Omega\|_\infty=6A$.
-\item[(c)] At $x=0$ the right-hand side of \eqref{eq:vort} for $u=AU$, $\omega=A\Omega$ equals $(0,0,6A(A-\nu))$.
+\item[(a)] $\nabla\cdot U=0$ and $\nabla\times U=(0,\ 2\sin x\sin z,\ 3(\cos x+\cos y))$.
+\item[(b)] $|\nabla\times U|^2=9(\cos x+\cos y)^2+4\sin^2x\sin^2z\le36$, with equality at the origin. So
+$\|\omega(\cdot,0)\|_{L^\infty}=\|A\,\nabla\times U\|_{L^\infty}=6A$.
+\item[(c)] At $x=0$ the right-hand side of \eqref{eq:vort} for $u=AU$, $\omega=\nabla\times u=A\,\nabla\times U$ equals $(0,0,6A(A-\nu))$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}[Proof sketch]
 (a) and (c) are direct differentiation; at the origin $U(0)=0$, the strain is $S(0)=\mathrm{diag}(-1,0,1)$,
-$\Omega(0)=(0,0,6)$ and $\Delta\Omega(0)=(0,0,-6)$. Stretching contributes $6A^2$, advection $0$ and diffusion
+$(\nabla\times U)(0)=(0,0,6)$ and $\Delta(\nabla\times U)(0)=(0,0,-6)$. Stretching contributes $6A^2$, advection $0$ and diffusion
 $-6\nu A$. For (b), $(\cos x+\cos y)^2\le2\cos^2x+2$ and $4\sin^2x\sin^2z\le4(1-\cos^2x)$, so
-$|\Omega|^2\le22+14\cos^2x\le36$.
+$|\nabla\times U|^2\le22+14\cos^2x\le36$.
 \end{proof}
 
 \begin{theorem}[V1 is false]\label{thm:v1}
@@ -108,14 +108,14 @@ solution with $u_0=AU$ violates \eqref{eq:key}, in either form, on every interva
 \begin{proof}
 By classical local well-posedness \cite{Kato1972,RRS2016}, the solution is smooth on $[0,T)\times\T$ up to
 $t=0$. Hence $g(t):=\omega_3(0,t)$ is $C^1$ with $g'(0)=6A(A-\nu)$ by Proposition~\ref{prop:U}(c) and
-\eqref{eq:vort}. Also $g\le|\omega(0,t)|\le M(t)$ and $g(0)=6A=M(0)$. (Using the component $\omega_3$ avoids
+\eqref{eq:vort}. Also $g(t)\le|\omega(0,t)|\le\|\omega(\cdot,t)\|_{L^\infty}$ and $g(0)=6A=\|\omega(\cdot,0)\|_{L^\infty}$. (Using the component $\omega_3$ avoids
 differentiating $|\cdot|$.) The arithmetic lemma \lean{amplitude_exists} gives
 $6A(A-\nu)>C-k(6A)^2$, and Lemma~\ref{lem:touch} concludes.
 \end{proof}
-Concretely, with $\nu=1$ and $A=3$ we get $M(0)=18$, and the lower right Dini derivative of $M$ at $0$ is at least $36$.
+Concretely, with $\nu=1$ and $A=3$ we get $\|\omega(\cdot,0)\|_{L^\infty}=18$, and the lower right Dini derivative of $t\mapsto\|\omega(\cdot,t)\|_{L^\infty}$ at $0$ is at least $36$.
 
 \section{V2: constants depending on $\nu$ and the energy}
-Amplitude scaling alone cannot refute V2, since an arbitrary $C(E)$ can absorb the growth of the energy $E$. We use
+Amplitude scaling alone cannot refute V2, since an arbitrary $C(\tfrac12\|u_0\|_{L^2}^2)$ can absorb the growth of the kinetic energy $\tfrac12\|u_0\|_{L^2}^2$. We use
 Navier--Stokes scaling of a localized field instead.
 
 \paragraph{Base field.} Let $\beta(\rho)=\exp(-3\rho/(1-\rho))$ for $\rho<1$ and $\beta=0$ for $\rho\ge1$, with $\rho=|x|^2$.
@@ -130,20 +130,20 @@ $\|\omega_1\|_\infty=12$. The certificate has three parts: (I) negative-definite
 
 \paragraph{Family.} Fix $B=10\nu$. For $\lambda\ge1$ put $\lambda B\,u_1(\lambda x)$ in the ball of radius $1/\lambda$ about
 $0\in\T$, and add a background $\mu\,u_2(x-p)$ with $p=(\pi,\pi,\pi)$. Here $u_2=\nabla\times(\beta(|x|^2)e_z)$ is a fixed nonzero
-smooth divergence-free field supported in the unit ball, with finite $M_2=\|\nabla\times u_2\|_\infty$ and energy $E_2>0$. The two supports are disjoint. The energy is
-$\tfrac12\|u_0\|_2^2=\lambda^{-1}B^2E_1+\mu^2E_2$. So for any target $E^*>0$ and $\lambda>B^2E_1/E^*$,
-the choice $\mu=\sqrt{(E^*-\lambda^{-1}B^2E_1)/E_2}$ makes the energy exactly $E^*$. For $\lambda$ large,
-$M(0)=\max(12B\lambda^2,\mu M_2)=120\nu\lambda^2$, attained at $0$. At $(x,t)=(0,0)$ the background vanishes nearby, and
+smooth divergence-free field supported in the unit ball, with finite $\|\nabla\times u_2\|_{L^\infty}$ and kinetic energy $\tfrac12\|u_2\|_{L^2}^2>0$. The two supports are disjoint. The kinetic energy is
+$\tfrac12\|u_0\|_{L^2}^2=\lambda^{-1}B^2\,\tfrac12\|u_1\|_{L^2}^2+\mu^2\,\tfrac12\|u_2\|_{L^2}^2$. So for any prescribed value $E^*>0$ of $\tfrac12\|u_0\|_{L^2}^2$ and $\lambda>B^2\|u_1\|_{L^2}^2/(2E^*)$,
+the choice $\mu=\sqrt{(E^*-\lambda^{-1}B^2\,\tfrac12\|u_1\|_{L^2}^2)/(\tfrac12\|u_2\|_{L^2}^2)}$ makes $\tfrac12\|u_0\|_{L^2}^2=E^*$ exactly. For $\lambda$ large,
+$\|\omega(\cdot,0)\|_{L^\infty}=\max(12B\lambda^2,\mu\|\nabla\times u_2\|_{L^\infty})=120\nu\lambda^2$, attained at $0$. At $(x,t)=(0,0)$ the background vanishes nearby, and
 \[
 \partial_t\omega_3(0,0)=(12\lambda^2B)(2\lambda^2B)-0+\nu\lambda^4B(-120)=24B(B-5\nu)\lambda^4=1200\,\nu^2\lambda^4 .
 \]
 
 \begin{theorem}[V2 is false]\label{thm:v2}
 For every $\nu>0$, $E^*>0$ and every choice $C=C(\nu,E^*)\ge0$, $k=k(\nu,E^*)>0$, some smooth divergence-free $u_0$ on $\T$
-with energy exactly $E^*$ violates \eqref{eq:key} at $t=0$.
+with $\tfrac12\|u_0\|_{L^2}^2=E^*$ exactly violates \eqref{eq:key} at $t=0$.
 \end{theorem}
 \begin{proof}
-As in Theorem~\ref{thm:v1}, with $g(t)=\omega_3(0,t)$, $g(0)=M(0)=120\nu\lambda^2$ and $g'(0)=1200\nu^2\lambda^4$.
+As in Theorem~\ref{thm:v1}, with $g(t)=\omega_3(0,t)$, $g(0)=\|\omega(\cdot,0)\|_{L^\infty}=120\nu\lambda^2$ and $g'(0)=1200\nu^2\lambda^4$.
 Choose $\lambda$ with $1200\nu^2\lambda^4\ge C$. Then \lean{localized_family_violation} gives
 $C-k(120\nu\lambda^2)^2<1200\nu^2\lambda^4$, and Lemma~\ref{lem:touch} applies.
 \end{proof}
@@ -157,30 +157,30 @@ fall under V3.
 
 \section{V3 is equivalent to global regularity, and is open}
 For a fixed smooth $u_0$ on $\T$, the following are equivalent: (a) the solution is global and smooth; (b) there are
-$C\ge0$ and $k>0$ with $D^+M\le C-kM^2$ for all $t\ge0$.
+$C\ge0$ and $k>0$ with $D^+\|\omega\|_{L^\infty}\le C-k\|\omega\|_{L^\infty}^2$ for all $t\ge0$.
 
-(b)$\Rightarrow$(a): comparison gives $M\le\max(M(0),\sqrt{C/k})$, so $\int_0^TM<\infty$ for every $T$, and the
+(b)$\Rightarrow$(a): comparison gives $\|\omega(\cdot,t)\|_{L^\infty}\le\max(\|\omega(\cdot,0)\|_{L^\infty},\sqrt{C/k})$, so $\int_0^T\|\omega(\cdot,t)\|_{L^\infty}\,dt<\infty$ for every $T$, and the
 Beale--Kato--Majda criterion \cite{BKM1984} excludes blow-up.
 
-(a)$\Rightarrow$(b): the elementary Danskin-type bound $D^+M(t)\le\|\partial_t\omega(t)\|_\infty$ holds. For a global
+(a)$\Rightarrow$(b): the elementary Danskin-type bound $D^+\|\omega(\cdot,t)\|_{L^\infty}\le\|\partial_t\omega(\cdot,t)\|_{L^\infty}$ holds. For a global
 smooth solution, eventual smallness of $\|\nabla u\|_2$, small-data theory and decay of higher norms
-\cite{RRS2016,FoiasTemam1989} (after a Galilean reduction to mean zero if $\int u_0\ne0$) give $\sup_t\|\partial_t\omega\|_\infty<\infty$ and $\sup_tM<\infty$.
+\cite{RRS2016,FoiasTemam1989} (after a Galilean reduction to mean zero if $\int u_0\ne0$) give $\sup_t\|\partial_t\omega(\cdot,t)\|_{L^\infty}<\infty$ and $\sup_t\|\omega(\cdot,t)\|_{L^\infty}<\infty$.
 
 Hence V3 for all smooth data is equivalent to global regularity on $\T$, Fefferman's statement~(B) \cite{Fefferman}
 up to the choice of period. \emph{It is open, and nothing here proves or disproves it.}
 
 At a point where $|\omega|$ is maximal, $\partial_t|\omega|=|\omega|\,\xi\cdot S\xi+\nu\,\xi\cdot\Delta\omega$ with
-$\xi=\omega/|\omega|$. The stretching term has size $\sim M^2$ and can be positive (its value was $+1$ in V1 and $+2$ in V2
-per unit amplitude) \cite{MajdaBertozzi2002}. Nothing in \eqref{eq:vort} produces a $-kM^2$ term.
+$\xi=\omega/|\omega|$. The stretching term has size $\sim\|\omega\|_{L^\infty}^2$ and can be positive (its value was $+1$ in V1 and $+2$ in V2
+per unit amplitude) \cite{MajdaBertozzi2002}. Nothing in \eqref{eq:vort} produces a $-k\|\omega\|_{L^\infty}^2$ term.
 
 \section{Lean-checked audit of the symplectic-tether draft}
-In the draft, $B(F,G)=-\kappa W\langle P^\perp\delta F,P^\perp\delta G\rangle$, where
-$P^\perp w=w-\frac{\langle w,u\rangle}{\|u\|^2}u$ and $W=\int|\omega|^2$. The ``tether 2-form'' is
+In the draft, $B(F,G)=-\kappa\,\|\omega\|_{L^2}^2\langle P^\perp\delta F,P^\perp\delta G\rangle$, where
+$P^\perp v=v-\frac{\langle v,u\rangle}{\|u\|^2}u$ and $\|\omega\|_{L^2}^2=\int|\omega|^2$ is the enstrophy (the draft wrote $W$ for it; in Lean it is the real argument \lean{enstrophy}). The ``tether 2-form'' is
 $\mathfrak T(a,b)=\omega\cdot(a\times b)-\kappa|\omega|^2(a\cdot b)$. The file \texttt{lean/FrohmanianTetherDraftAudit.lean}
 proves the following.
 \begin{itemize}
 \item \lean{tetherB_symm}, \lean{tetherB_degenerate_H}: $B$ is symmetric and $B(F,H)=0$ for $\delta H=u$.
-\item \lean{tetherB_diag_ne_zero}, \lean{tetherB_not_antisymm} (and a concrete $\R^2$ witness): if $\kappa,W\ne0$ and
+\item \lean{tetherB_diag_ne_zero}, \lean{tetherB_not_antisymm} (and a concrete $\R^2$ witness): if $\kappa\ne0$, $\|\omega\|_{L^2}^2\ne0$ and
 $P^\perp v\ne0$ then $B(v,v)\ne0$, so $B$ is \emph{not} antisymmetric.
 \item \lean{arnold_part_antisymm}, \lean{tether2Form_not_antisymm}: the Arnold part is antisymmetric, but $\mathfrak T$ is
 not, so it is not a symplectic form, as the draft's A1, Lemma~3 and Theorem~4.1 had claimed.
@@ -203,7 +203,7 @@ draft's form.
 \textbf{In Lean 4} \cite{Lean4} with Mathlib \cite{Mathlib} (both files, 50 declarations, no \texttt{sorry}, no \texttt{axiom} declarations):
 \begin{itemize}
 \item the touching lemma, in both differentiable and Dini forms;
-\item for $u_0=AU$: the divergence, the curl, the global bound $|\Omega|\le6$ with equality at $0$, and the
+\item for $u_0=AU$: the divergence, the curl, the global bound $|\nabla\times U|\le6$ with equality at $0$, and the
 exact right-hand side of \eqref{eq:vort} at the origin (derivatives as \texttt{deriv} of coordinate slices);
 \item the amplitude choice; the scalar step of V2;
 \item all audit statements in Section~5.
@@ -212,7 +212,7 @@ exact right-hand side of \eqref{eq:vort} at the origin (derivatives as \texttt{d
 \begin{itemize}
 \item Local existence, uniqueness and smoothness up to $t=0$ for smooth data on $\T$ \cite{Kato1972,RRS2016}. This
 identifies $g'(0)$ with the right-hand side of \eqref{eq:vort}, the derivative step behind the touching lemma.
-\item The Danskin-type bound $D^+M\le\|\partial_t\omega\|_\infty$ (used only in the V3 remark).
+\item The Danskin-type bound $D^+\|\omega\|_{L^\infty}\le\|\partial_t\omega\|_{L^\infty}$ (used only in the V3 remark).
 \item The BKM criterion \cite{BKM1984}, which is an explicit hypothesis in Lean.
 \item The V2 symbolic values (sympy) and the Arb maximum certificate \cite{Arb2017}, plus the energy and support bookkeeping
 of the family.
@@ -224,7 +224,7 @@ $35.80$ against the exact $36$. For the localized field with $B=10$, $\lambda=1$
 against the exact $1200$. The $128^3$ run is under-resolved.
 
 \section{Reproducibility}
-\textbf{Cite as:} B.~S.~Frohman, \emph{The Riccati Vorticity Estimate $M'\le C-kM^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}, version 1.1.0, Zenodo, 2026, reserved DOI \href{https://doi.org/10.5281/zenodo.24121364}{doi:10.5281/zenodo.24121364} (draft, not yet published). Version 1.0.2: \href{https://doi.org/10.5281/zenodo.24102417}{doi:10.5281/zenodo.24102417}. All versions: \href{https://doi.org/10.5281/zenodo.24102220}{doi:10.5281/zenodo.24102220}.
+\textbf{Cite as:} B.~S.~Frohman, \emph{The Riccati Vorticity Estimate $\frac{d}{dt}\|\omega\|_{L^\infty}\le C-k\|\omega\|_{L^\infty}^2$ Fails for 3D Navier--Stokes on $\mathbb{T}^3$: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft}, version 1.1.0, Zenodo, 2026, reserved DOI \href{https://doi.org/10.5281/zenodo.24121364}{doi:10.5281/zenodo.24121364} (draft, not yet published). Version 1.0.2: \href{https://doi.org/10.5281/zenodo.24102417}{doi:10.5281/zenodo.24102417}. All versions: \href{https://doi.org/10.5281/zenodo.24102220}{doi:10.5281/zenodo.24102220}.
 
 Repository:
 \begin{center}\url{https://github.com/BenFrohman/ns-tether-key-estimate-refutation}\end{center}

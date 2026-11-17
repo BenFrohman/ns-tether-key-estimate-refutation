@@ -1,4 +1,4 @@
-# The Riccati vorticity estimate M′ ≤ C − kM² fails for 3D Navier–Stokes on T³
+# The Riccati vorticity estimate d/dt ‖ω‖_{L∞} ≤ C − k‖ω‖²_{L∞} fails for 3D Navier–Stokes on T³
 
 **An explicit counterexample and a Lean-checked audit of the symplectic-tether draft**
 
@@ -10,7 +10,7 @@ ORCID [0009-0006-7068-3718](https://orcid.org/0009-0006-7068-3718)
 Paper: [`paper/ns-key-estimate-refutation.pdf`](paper/ns-key-estimate-refutation.pdf) ·
 Code license: Apache-2.0 · Paper license: CC BY 4.0 · Version 1.1.0
 
-**Cite as:** Benjamin Stanley Frohman, *The Riccati Vorticity Estimate M′ ≤ C − kM² Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft*, version 1.1.0, Zenodo, 2026. Reserved DOI: [10.5281/zenodo.24121364](https://doi.org/10.5281/zenodo.24121364) (draft, not yet published).
+**Cite as:** Benjamin Stanley Frohman, *The Riccati Vorticity Estimate d/dt ‖ω‖_{L∞} ≤ C − k‖ω‖²_{L∞} Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft*, version 1.1.0, Zenodo, 2026. Reserved DOI: [10.5281/zenodo.24121364](https://doi.org/10.5281/zenodo.24121364) (draft, not yet published).
 Version 1.0.2: [10.5281/zenodo.24102417](https://doi.org/10.5281/zenodo.24102417).
 All versions (concept DOI): [10.5281/zenodo.24102220](https://doi.org/10.5281/zenodo.24102220).
 Version 1.0.0: [10.5281/zenodo.24102221](https://doi.org/10.5281/zenodo.24102221).
@@ -21,8 +21,8 @@ Version 1.0.0: [10.5281/zenodo.24102221](https://doi.org/10.5281/zenodo.24102221
 
 ## In plain English
 
-My earlier draft argued that the largest vorticity in a 3D viscous fluid, M(t), always obeys
-M′ ≤ C − k·M². If that were true, M could never run away, and the Navier–Stokes equations would never
+My earlier draft argued that the largest vorticity in a 3D viscous fluid, ‖ω(·,t)‖_{L∞}, always obeys
+d/dt ‖ω(·,t)‖_{L∞} ≤ C − k·‖ω(·,t)‖²_{L∞}. If that were true, ‖ω(·,t)‖_{L∞} could never run away, and the Navier–Stokes equations would never
 blow up. This repository checks that claim.
 
 ### What is refuted (shown false)
@@ -31,10 +31,10 @@ blow up. This repository checks that claim.
   The counterexample is the explicit starting flow u₀ = A·U, with
   U = 3(−sin y, sin x, 0) + (−sin x cos z, 0, cos x sin z).
   - Its vorticity is ω = A·(0, 2 sin x sin z, 3(cos x + cos y)).
-  - The vorticity is largest at the origin, where M(0) = 6A.
-  - At the origin, vortex stretching adds 6A² and viscosity removes 6νA. So M starts out *growing* at
+  - The vorticity is largest at the origin, where ‖ω(·,0)‖_{L∞} = 6A.
+  - At the origin, vortex stretching adds 6A² and viscosity removes 6νA. So ‖ω(·,t)‖_{L∞} starts out *growing* at
     a rate of at least 6A(A − ν).
-  - The estimate demands that M start *shrinking* once M is large. For any fixed C and k, the choice
+  - The estimate demands that ‖ω(·,t)‖_{L∞} start *shrinking* once it is large. For any fixed C and k, the choice
     A = ν + 1 + |C|/k breaks it.
 - **Constants allowed to depend on ν and the fluid's energy, in any way: also false.** The
   counterexample here is a small, intense vortex. Shrinking it makes the peak vorticity grow like λ²
@@ -64,7 +64,7 @@ regularity itself. That version is **open**, and nothing here settles it.
 | In Lean (machine-checked) | Cited or computed outside Lean |
 |---|---|
 | Touching lemma (differentiable and Dini forms) | Kato local existence and smoothness up to t = 0, which identifies g′(0) with the vorticity equation's right-hand side |
-| div U = 0, curl U, \|curl U\| ≤ 6 with equality at 0, exact right-hand side (0, 0, 6A(A−ν)) at the origin | Danskin-type bound D⁺M ≤ ‖∂ₜω‖∞ (only for the V3 remark) |
+| div U = 0, curl U, \|curl U\| ≤ 6 with equality at 0, exact right-hand side (0, 0, 6A(A−ν)) at the origin | Danskin-type bound D⁺‖ω‖_{L∞} ≤ ‖∂ₜω‖_{L∞} (only for the V3 remark) |
 | Amplitude choice; scalar step of the localized family | Beale–Kato–Majda criterion (a hypothesis in Lean) |
 | All tether-audit statements; conditional chain | Symbolic values of the localized vortex (sympy) and the rigorous Arb interval certificate of its maximum |
 | | Decay and eventual-smallness facts used in the V3 equivalence |
@@ -150,9 +150,9 @@ Output of `cd lean && lake env lean PrintAxioms.lean`, verbatim:
 'KeyEstimate.draftRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
 'KeyEstimate.diniRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
 'KeyEstimate.div_free' depends on axioms: [propext, Classical.choice, Quot.sound]
-'KeyEstimate.w1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'KeyEstimate.w2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'KeyEstimate.w3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.ω₁_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.ω₂_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KeyEstimate.ω₃_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'KeyEstimate.omega_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'KeyEstimate.omega_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
 'KeyEstimate.omega_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

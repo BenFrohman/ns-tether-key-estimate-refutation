@@ -1,16 +1,16 @@
 # Kernel certificate manifest
-# source commit: a22f979a4d5b27d83fba7e183ba8e43b20b35425
+# source commit: fafda8ee708381116de864d062e479d9692c69d2
 # lean-toolchain: leanprover/lean4:v4.22.0
 # Mathlib: 79e94a093aff4a60fb1b1f92d9681e407124c2ca (lake-manifest.json; inputRev v4.22.0)
-# CI run: https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/44001457622
-# rebuild: git clone https://github.com/BenFrohman/ns-tether-key-estimate-refutation.git && cd ns-tether-key-estimate-refutation && git checkout a22f979a4d5b27d83fba7e183ba8e43b20b35425 && cd lean && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+# CI run: https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/44034087402
+# rebuild: git clone https://github.com/BenFrohman/ns-tether-key-estimate-refutation.git && cd ns-tether-key-estimate-refutation && git checkout fafda8ee708381116de864d062e479d9692c69d2 && cd lean && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
 # verify: cd lean/certificates && sha256sum -c MANIFEST.sha256
-e5ea65f4dd5e9d6600802321ec91181ac85db86ad8fefcebb2db8ffbb54a73da  CERTIFICATE.md
+1f9bbeced1f81e185f87d1c13d0a5d3c30cb25c5710bb91b0b9b66a617027b20  CERTIFICATE.md
 47bf993047fd1a715688c7a857c405544877c995f303aa1366976cb3a06ffc7a  KernelCertificateAudit.lean.txt
-c0e87efd7053eb62d71fc9fd84eb0c75c4ab9b7f052e5963779c66cc2709ffd0  axioms.raw.txt
-52f5e900cac02f4f31019218c7c2eaa2504c6bcf32dc5dd71c386bdf8574ee24  axioms.txt
-4eea7d3f352a61307259ae28f09c809ef30b819ad563b2b3da9f57c5b5f878f3  build.log
-f09ced4b004fa55d6d8e7554c424625be5c104c8a29edbd86e38a1344aa16e26  environment.txt
+a8cfd1bf80adcb22ac4a1a97473ce43fa1d142336c531eb23bac10f0cd16ce4f  axioms.raw.txt
+6aa384dcbfb50178ad27ea77bf15ba56c7418a365ed1d9c48d9efc99870903b1  axioms.txt
+719316a9b1aa66b37614eda42ba6dc373fcf209fb710ad1de5b8d460b249c108  build.log
+d92d4b8576f97be1205664655c7ec949e970e539c51a5223b90903ecaa4d2390  environment.txt
 fe9706bde8223034f5f33a6a8c96b99972e154ddaa679b28b2fa39ec84fa95fa  leanchecker.txt
 235846203d4c4c67e7dcb59600075fda2acb2a2035a80ebbc020a9a07c7fadcf  modules.txt
 f6a916ad807c8786f91618abb8f4c6a1d08d353e56ab03e470042d85ac819776  sorry-scan.txt
