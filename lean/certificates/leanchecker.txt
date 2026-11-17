@@ -1,0 +1,8 @@
+checker: lean4checker tag v4.22.0 (0531c5e62c6bbc21af6c8b4adc2a16d201bf8b65), Main.lean prefix match -> exact match
+  patch: 84c84
+  patch: <         if target.isPrefixOf m then
+  patch: ---
+  patch: >         if target == m then
+FrohmanianTetherDraftAudit: OK (1 module replayed)
+KeyEstimateRefutation: OK (1 module replayed)
+RESULT: 2 of 2 modules replayed through the kernel, 0 failures
