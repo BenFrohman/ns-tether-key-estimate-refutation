@@ -1,0 +1,16 @@
+✔ [7083/7085] Built FrohmanianTetherDraftAudit
+ℹ [7084/7085] Built KeyEstimateRefutation
+info: KeyEstimateRefutation.lean:225:0: 'KeyEstimate.rightDeriv_le_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:226:0: 'KeyEstimate.draftRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:227:0: 'KeyEstimate.diniRiccati_false_of_touch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:228:0: 'KeyEstimate.div_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:229:0: 'KeyEstimate.w1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:230:0: 'KeyEstimate.w2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:231:0: 'KeyEstimate.w3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:232:0: 'KeyEstimate.omega_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:233:0: 'KeyEstimate.omega_at_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:234:0: 'KeyEstimate.omega_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:235:0: 'KeyEstimate.rhs_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:236:0: 'KeyEstimate.amplitude_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KeyEstimateRefutation.lean:237:0: 'KeyEstimate.localized_family_violation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully.

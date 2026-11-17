@@ -1,0 +1,16 @@
+# Kernel certificate manifest
+# source commit: a22f979a4d5b27d83fba7e183ba8e43b20b35425
+# lean-toolchain: leanprover/lean4:v4.22.0
+# Mathlib: 79e94a093aff4a60fb1b1f92d9681e407124c2ca (lake-manifest.json; inputRev v4.22.0)
+# CI run: https://github.com/BenFrohman/ns-tether-key-estimate-refutation/actions/runs/44001457622
+# rebuild: git clone https://github.com/BenFrohman/ns-tether-key-estimate-refutation.git && cd ns-tether-key-estimate-refutation && git checkout a22f979a4d5b27d83fba7e183ba8e43b20b35425 && cd lean && lake exe cache get && lake build && python3 certificates/tools/sorry_scan.py && python3 certificates/tools/gen_audit.py /tmp/KernelCertificateAudit.lean /tmp/modules.txt && lake env lean /tmp/KernelCertificateAudit.lean > /tmp/axioms.raw.txt && python3 certificates/tools/check_audit.py /tmp/axioms.raw.txt | tail -n 1
+# verify: cd lean/certificates && sha256sum -c MANIFEST.sha256
+e5ea65f4dd5e9d6600802321ec91181ac85db86ad8fefcebb2db8ffbb54a73da  CERTIFICATE.md
+47bf993047fd1a715688c7a857c405544877c995f303aa1366976cb3a06ffc7a  KernelCertificateAudit.lean.txt
+c0e87efd7053eb62d71fc9fd84eb0c75c4ab9b7f052e5963779c66cc2709ffd0  axioms.raw.txt
+52f5e900cac02f4f31019218c7c2eaa2504c6bcf32dc5dd71c386bdf8574ee24  axioms.txt
+4eea7d3f352a61307259ae28f09c809ef30b819ad563b2b3da9f57c5b5f878f3  build.log
+f09ced4b004fa55d6d8e7554c424625be5c104c8a29edbd86e38a1344aa16e26  environment.txt
+fe9706bde8223034f5f33a6a8c96b99972e154ddaa679b28b2fa39ec84fa95fa  leanchecker.txt
+235846203d4c4c67e7dcb59600075fda2acb2a2035a80ebbc020a9a07c7fadcf  modules.txt
+f6a916ad807c8786f91618abb8f4c6a1d08d353e56ab03e470042d85ac819776  sorry-scan.txt
