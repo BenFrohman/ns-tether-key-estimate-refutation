@@ -56,9 +56,9 @@ Machine-checked Lean 4 module.
 #print axioms KeyEstimate.draftRiccati_false_of_touch
 #print axioms KeyEstimate.diniRiccati_false_of_touch
 #print axioms KeyEstimate.div_free
-#print axioms KeyEstimate.w1_eq
-#print axioms KeyEstimate.w2_eq
-#print axioms KeyEstimate.w3_eq
+#print axioms KeyEstimate.ω₁_eq
+#print axioms KeyEstimate.ω₂_eq
+#print axioms KeyEstimate.ω₃_eq
 #print axioms KeyEstimate.omega_sq_le
 #print axioms KeyEstimate.omega_at_origin
 #print axioms KeyEstimate.omega_norm_bound

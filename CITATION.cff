@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "The Riccati Vorticity Estimate M' ≤ C − kM² Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft"
+title: "The Riccati Vorticity Estimate d/dt ‖ω‖_{L∞} ≤ C − k‖ω‖²_{L∞} Fails for 3D Navier–Stokes on T³: An Explicit Counterexample and a Lean-Checked Audit of the Symplectic-Tether Draft"
 type: software
 authors:
   - family-names: Frohman
@@ -37,7 +37,7 @@ keywords:
   - formal verification
   - interval arithmetic
 abstract: >-
-  The a-priori estimate M'(t) ≤ C − k M(t)² for the vorticity sup-norm of 3D incompressible
+  The a-priori estimate d/dt ‖ω(·,t)‖_{L∞} ≤ C − k ‖ω(·,t)‖²_{L∞} for the vorticity of 3D incompressible
   Navier–Stokes on the torus is false when C, k depend only on the viscosity (explicit
   trigonometric counterexample) or on the viscosity and the energy (scaled localized vortex).
   With data-dependent constants it is equivalent to global regularity and remains open; no

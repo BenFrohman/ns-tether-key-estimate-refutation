@@ -8,17 +8,20 @@ Authors: Benjamin Stanley Frohman
   KeyEstimateRefutation.lean  —  Benjamin Stanley Frohman, 2026-11-09.
 
   Machine-checked parts of the refutation of the "key estimate"
-      M'(t) ≤ C − k·M(t)²,   M(t) = ‖ω(·,t)‖_{L∞},  C ≥ 0, k > 0
+      d/dt ‖ω(·,t)‖_{L∞} ≤ C − k·‖ω(·,t)‖_{L∞}²,  C ≥ 0, k > 0
   for 3D incompressible Navier–Stokes on T³ = (ℝ/2πℤ)³ with constants independent of the data.
 
   WHAT IS PROVED HERE (no `sorry`, no custom axioms):
-  * Part 1 (abstract comparison): if a function g touches M from below at t = 0
-    (g ≤ M on [0,δ), g 0 = M 0) and g'(0⁺) = r > C − k·M(0)², then M cannot satisfy the
+  * Part 1 (abstract comparison): if a function g touches t ↦ ‖ω(·,t)‖_{L∞} from below at t = 0
+    (g ≤ ‖ω(·,t)‖_{L∞} on [0,δ), g 0 = ‖ω(·,0)‖_{L∞}) and g'(0⁺) = r > C − k·‖ω(·,0)‖_{L∞}², then
+    t ↦ ‖ω(·,t)‖_{L∞} cannot satisfy the
     estimate on any [0,T), T > 0 — neither in the differentiable form used in
     `FrohmanianTetherDraftAudit.lean` (`DraftRiccatiEstimate`, copied verbatim below) nor in the
-    weaker upper-right-Dini form appropriate for a sup-norm.
+    weaker upper-right-Dini form appropriate for an L∞ norm. In Lean the slot for
+    t ↦ ‖ω(·,t)‖_{L∞} is the argument `vorticityLinfNorm` (and its derivative `vorticityLinfNorm'`);
+    the lemmas hold for every real function in that slot.
   * Part 2 (the explicit field U, exact calculus on ℝ³): divergence-free, its curl,
-    the global bound |Ω|² ≤ 36 = |Ω(0)|², and the exact value of the right-hand side of the
+    the global bound |∇×U|² ≤ 36 = |(∇×U)(0)|², and the exact value of the right-hand side of the
     vorticity equation at x = 0 for u₀ = A·U:  (0, 0, 6A(A − ν)).
   * Part 3 (arithmetic): for every ν > 0, C, k > 0 there is A > ν with 6A(A−ν) > C − k(6A)².
 
@@ -45,24 +48,25 @@ namespace KeyEstimate
 /-! ## Part 1. Abstract comparison lemma -/
 
 /-- Verbatim copy of the hypothesis in `FrohmanianTetherDraftAudit.lean`. -/
-def DraftRiccatiEstimate (M M' : ℝ → ℝ) (C k T : ℝ) : Prop :=
-  0 ≤ C ∧ 0 < k ∧ (∀ t ∈ Ico 0 T, HasDerivAt M (M' t) t) ∧
-    (∀ t ∈ Ico 0 T, M' t ≤ C - k * M t ^ 2)
+def DraftRiccatiEstimate (vorticityLinfNorm vorticityLinfNorm' : ℝ → ℝ) (C k T : ℝ) : Prop :=
+  0 ≤ C ∧ 0 < k ∧ (∀ t ∈ Ico 0 T, HasDerivAt vorticityLinfNorm (vorticityLinfNorm' t) t) ∧
+    (∀ t ∈ Ico 0 T, vorticityLinfNorm' t ≤ C - k * vorticityLinfNorm t ^ 2)
 
-/-- Weaker, sup-norm-appropriate form: the upper right Dini derivative of `M` is `≤ C − k M²`
+/-- Weaker, `L∞`-norm-appropriate form: the upper right Dini derivative of
+`t ↦ ‖ω(·,t)‖_{L∞}` is `≤ C − k ‖ω(·,t)‖²_{L∞}`
 on `[0,T)` (stated with an explicit ε–δ, no differentiability assumed). -/
-def DiniRiccatiEstimate (M : ℝ → ℝ) (C k T : ℝ) : Prop :=
+def DiniRiccatiEstimate (vorticityLinfNorm : ℝ → ℝ) (C k T : ℝ) : Prop :=
   0 ≤ C ∧ 0 < k ∧ ∀ t ∈ Ico 0 T, ∀ ε > 0, ∃ δ > 0, ∀ s ∈ Ioo t (t + δ),
-    M s ≤ M t + (C - k * M t ^ 2 + ε) * (s - t)
+    vorticityLinfNorm s ≤ vorticityLinfNorm t + (C - k * vorticityLinfNorm t ^ 2 + ε) * (s - t)
 
-/-- If `g ≤ M` on `[0,δ)`, `g 0 = M 0`, and both have right derivatives at `0`, then
-`g'(0⁺) ≤ M'(0⁺)`. -/
-theorem rightDeriv_le_of_touch {M g : ℝ → ℝ} {m r δ : ℝ} (hδ : 0 < δ)
-    (hM : HasDerivWithinAt M m (Ici 0) 0) (hg : HasDerivWithinAt g r (Ici 0) 0)
-    (h0 : g 0 = M 0) (hle : ∀ t ∈ Ico 0 δ, g t ≤ M t) : r ≤ m := by
+/-- If `g ≤ ‖ω(·,t)‖_{L∞}` on `[0,δ)`, `g 0 = ‖ω(·,0)‖_{L∞}`, and both have right derivatives at
+`0`, then `g'(0⁺) ≤ (d/dt ‖ω(·,t)‖_{L∞})(0⁺)`. -/
+theorem rightDeriv_le_of_touch {vorticityLinfNorm g : ℝ → ℝ} {m r δ : ℝ} (hδ : 0 < δ)
+    (hM : HasDerivWithinAt vorticityLinfNorm m (Ici 0) 0) (hg : HasDerivWithinAt g r (Ici 0) 0)
+    (h0 : g 0 = vorticityLinfNorm 0) (hle : ∀ t ∈ Ico 0 δ, g t ≤ vorticityLinfNorm t) : r ≤ m := by
   have h := hM.sub hg
   rw [hasDerivWithinAt_iff_tendsto_slope, Ici_diff_left] at h
-  have hev : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), 0 ≤ slope (M - g) 0 t := by
+  have hev : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), 0 ≤ slope (vorticityLinfNorm - g) 0 t := by
     have h1 : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), t < δ :=
       nhdsWithin_le_nhds (Iio_mem_nhds hδ)
     have h2 : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), t ∈ Ioi (0:ℝ) := self_mem_nhdsWithin
@@ -77,25 +81,25 @@ theorem rightDeriv_le_of_touch {M g : ℝ → ℝ} {m r δ : ℝ} (hδ : 0 < δ)
   linarith
 
 /-- **Refutation lemma (differentiable form).** -/
-theorem draftRiccati_false_of_touch {M M' g : ℝ → ℝ} {C k T r : ℝ} (hT : 0 < T)
-    (hR : DraftRiccatiEstimate M M' C k T) (hg : HasDerivWithinAt g r (Ici 0) 0)
-    (h0 : g 0 = M 0) (hle : ∀ t ∈ Ico 0 T, g t ≤ M t) (hr : C - k * M 0 ^ 2 < r) : False := by
+theorem draftRiccati_false_of_touch {vorticityLinfNorm vorticityLinfNorm' g : ℝ → ℝ} {C k T r : ℝ} (hT : 0 < T)
+    (hR : DraftRiccatiEstimate vorticityLinfNorm vorticityLinfNorm' C k T) (hg : HasDerivWithinAt g r (Ici 0) 0)
+    (h0 : g 0 = vorticityLinfNorm 0) (hle : ∀ t ∈ Ico 0 T, g t ≤ vorticityLinfNorm t) (hr : C - k * vorticityLinfNorm 0 ^ 2 < r) : False := by
   obtain ⟨_, _, hd, hi⟩ := hR
   have h0T : (0:ℝ) ∈ Ico 0 T := ⟨le_rfl, hT⟩
   have hm := rightDeriv_le_of_touch hT (hd 0 h0T).hasDerivWithinAt hg h0 hle
   have := hi 0 h0T
   linarith
 
-/-- **Refutation lemma (Dini form, no differentiability of `M` assumed).** -/
-theorem diniRiccati_false_of_touch {M g : ℝ → ℝ} {C k T r : ℝ} (hT : 0 < T)
-    (hR : DiniRiccatiEstimate M C k T) (hg : HasDerivWithinAt g r (Ici 0) 0)
-    (h0 : g 0 = M 0) (hle : ∀ t ∈ Ico 0 T, g t ≤ M t) (hr : C - k * M 0 ^ 2 < r) : False := by
+/-- **Refutation lemma (Dini form, no differentiability of `t ↦ ‖ω(·,t)‖_{L∞}` assumed).** -/
+theorem diniRiccati_false_of_touch {vorticityLinfNorm g : ℝ → ℝ} {C k T r : ℝ} (hT : 0 < T)
+    (hR : DiniRiccatiEstimate vorticityLinfNorm C k T) (hg : HasDerivWithinAt g r (Ici 0) 0)
+    (h0 : g 0 = vorticityLinfNorm 0) (hle : ∀ t ∈ Ico 0 T, g t ≤ vorticityLinfNorm t) (hr : C - k * vorticityLinfNorm 0 ^ 2 < r) : False := by
   obtain ⟨_, _, hD⟩ := hR
-  set ε := (r - (C - k * M 0 ^ 2)) / 2 with hε
+  set ε := (r - (C - k * vorticityLinfNorm 0 ^ 2)) / 2 with hε
   have hεpos : 0 < ε := by rw [hε]; linarith
   obtain ⟨δ, hδ, hup⟩ := hD 0 ⟨le_rfl, hT⟩ ε hεpos
   rw [hasDerivWithinAt_iff_tendsto_slope, Ici_diff_left] at hg
-  have hev : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), slope g 0 t ≤ C - k * M 0 ^ 2 + ε := by
+  have hev : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), slope g 0 t ≤ C - k * vorticityLinfNorm 0 ^ 2 + ε := by
     have h1 : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), t < min δ T :=
       nhdsWithin_le_nhds (Iio_mem_nhds (lt_min hδ hT))
     have h2 : ∀ᶠ t in 𝓝[Ioi (0:ℝ)] (0:ℝ), t ∈ Ioi (0:ℝ) := self_mem_nhdsWithin
@@ -116,30 +120,30 @@ theorem diniRiccati_false_of_touch {M g : ℝ → ℝ} {C k T r : ℝ} (hT : 0 <
 
 noncomputable section
 
-def u1 (A x y z : ℝ) : ℝ := A * (-3 * Real.sin y - Real.sin x * Real.cos z)
-def u2 (A x _y _z : ℝ) : ℝ := A * (3 * Real.sin x)
-def u3 (A x _y z : ℝ) : ℝ := A * (Real.cos x * Real.sin z)
+def u₁ (A x y z : ℝ) : ℝ := A * (-3 * Real.sin y - Real.sin x * Real.cos z)
+def u₂ (A x _y _z : ℝ) : ℝ := A * (3 * Real.sin x)
+def u₃ (A x _y z : ℝ) : ℝ := A * (Real.cos x * Real.sin z)
 
 def dx (f : ℝ → ℝ → ℝ → ℝ) (x y z : ℝ) : ℝ := deriv (fun s => f s y z) x
 def dy (f : ℝ → ℝ → ℝ → ℝ) (x y z : ℝ) : ℝ := deriv (fun s => f x s z) y
 def dz (f : ℝ → ℝ → ℝ → ℝ) (x y z : ℝ) : ℝ := deriv (fun s => f x y s) z
 
-theorem div_free (A x y z : ℝ) : dx (u1 A) x y z + dy (u2 A) x y z + dz (u3 A) x y z = 0 := by
-  simp [dx, dy, dz, u1, u2, u3]
+theorem div_free (A x y z : ℝ) : dx (u₁ A) x y z + dy (u₂ A) x y z + dz (u₃ A) x y z = 0 := by
+  simp [dx, dy, dz, u₁, u₂, u₃]
 
-/-- vorticity ω = curl(A·U), from the definition -/
-def w1 (A : ℝ) (x y z : ℝ) : ℝ := dy (u3 A) x y z - dz (u2 A) x y z
-def w2 (A : ℝ) (x y z : ℝ) : ℝ := dz (u1 A) x y z - dx (u3 A) x y z
-def w3 (A : ℝ) (x y z : ℝ) : ℝ := dx (u2 A) x y z - dy (u1 A) x y z
+/-- vorticity ω = ∇×u₀ = ∇×(A·U), components `ω₁, ω₂, ω₃`, from the definition -/
+def ω₁ (A : ℝ) (x y z : ℝ) : ℝ := dy (u₃ A) x y z - dz (u₂ A) x y z
+def ω₂ (A : ℝ) (x y z : ℝ) : ℝ := dz (u₁ A) x y z - dx (u₃ A) x y z
+def ω₃ (A : ℝ) (x y z : ℝ) : ℝ := dx (u₂ A) x y z - dy (u₁ A) x y z
 
-theorem w1_eq (A : ℝ) : w1 A = fun _ _ _ => 0 := by
-  funext x y z; simp [w1, dy, dz, u2, u3]
-theorem w2_eq (A : ℝ) : w2 A = fun x _ z => A * (2 * Real.sin x * Real.sin z) := by
-  funext x y z; simp [w2, dx, dz, u1, u3]; ring
-theorem w3_eq (A : ℝ) : w3 A = fun x y _ => A * (3 * (Real.cos x + Real.cos y)) := by
-  funext x y z; simp [w3, dx, dy, u1, u2]; ring
+theorem ω₁_eq (A : ℝ) : ω₁ A = fun _ _ _ => 0 := by
+  funext x y z; simp [ω₁, dy, dz, u₂, u₃]
+theorem ω₂_eq (A : ℝ) : ω₂ A = fun x _ z => A * (2 * Real.sin x * Real.sin z) := by
+  funext x y z; simp [ω₂, dx, dz, u₁, u₃]; ring
+theorem ω₃_eq (A : ℝ) : ω₃ A = fun x y _ => A * (3 * (Real.cos x + Real.cos y)) := by
+  funext x y z; simp [ω₃, dx, dy, u₁, u₂]; ring
 
-/-- **Global maximum certificate**: |Ω|² ≤ 36 everywhere (Ω = ω/A), and |Ω(0)|² = 36. -/
+/-- **Global maximum certificate**: |∇×U|² ≤ 36 everywhere (∇×U = ω/A), and |(∇×U)(0)|² = 36. -/
 theorem omega_sq_le (x y z : ℝ) :
     (2 * Real.sin x * Real.sin z) ^ 2 + (3 * (Real.cos x + Real.cos y)) ^ 2 ≤ 36 := by
   have hx := Real.sin_sq_add_cos_sq x
@@ -148,13 +152,13 @@ theorem omega_sq_le (x y z : ℝ) :
   nlinarith [sq_nonneg (Real.cos x - Real.cos y), sq_nonneg (Real.sin y), sq_nonneg (Real.cos z),
     mul_nonneg (sq_nonneg (Real.sin x)) (sq_nonneg (Real.cos z)), sq_nonneg (Real.sin x)]
 
-theorem omega_at_origin (A : ℝ) : w1 A 0 0 0 = 0 ∧ w2 A 0 0 0 = 0 ∧ w3 A 0 0 0 = 6 * A := by
-  rw [w1_eq, w2_eq, w3_eq]; simp; ring
+theorem omega_at_origin (A : ℝ) : ω₁ A 0 0 0 = 0 ∧ ω₂ A 0 0 0 = 0 ∧ ω₃ A 0 0 0 = 6 * A := by
+  rw [ω₁_eq, ω₂_eq, ω₃_eq]; simp; ring
 
 /-- `|ω(x,0)| ≤ 6|A|` everywhere, with equality at the origin: `‖ω(·,0)‖∞ = 6|A|`. -/
 theorem omega_norm_bound (A x y z : ℝ) :
-    Real.sqrt (w1 A x y z ^ 2 + w2 A x y z ^ 2 + w3 A x y z ^ 2) ≤ 6 * |A| := by
-  rw [w1_eq, w2_eq, w3_eq]
+    Real.sqrt (ω₁ A x y z ^ 2 + ω₂ A x y z ^ 2 + ω₃ A x y z ^ 2) ≤ 6 * |A| := by
+  rw [ω₁_eq, ω₂_eq, ω₃_eq]
   simp only
   rw [Real.sqrt_le_left (by positivity)]
   have h := omega_sq_le x y z
@@ -171,16 +175,16 @@ def lap (f : ℝ → ℝ → ℝ → ℝ) (x y z : ℝ) : ℝ :=
     deriv (fun s => deriv (fun r => f x y r) s) z
 
 /-- i-th component of the vorticity-equation RHS  (ω·∇)uᵢ − (u·∇)ωᵢ + νΔωᵢ. -/
-def rhs (A ν : ℝ) (wi : ℝ → ℝ → ℝ → ℝ) (ui : ℝ → ℝ → ℝ → ℝ) (x y z : ℝ) : ℝ :=
-  (w1 A x y z * dx ui x y z + w2 A x y z * dy ui x y z + w3 A x y z * dz ui x y z)
-  - (u1 A x y z * dx wi x y z + u2 A x y z * dy wi x y z + u3 A x y z * dz wi x y z)
-  + ν * lap wi x y z
+def rhs (A ν : ℝ) (ωᵢ : ℝ → ℝ → ℝ → ℝ) (uᵢ : ℝ → ℝ → ℝ → ℝ) (x y z : ℝ) : ℝ :=
+  (ω₁ A x y z * dx uᵢ x y z + ω₂ A x y z * dy uᵢ x y z + ω₃ A x y z * dz uᵢ x y z)
+  - (u₁ A x y z * dx ωᵢ x y z + u₂ A x y z * dy ωᵢ x y z + u₃ A x y z * dz ωᵢ x y z)
+  + ν * lap ωᵢ x y z
 
 theorem rhs_origin (A ν : ℝ) :
-    rhs A ν (w1 A) (u1 A) 0 0 0 = 0 ∧ rhs A ν (w2 A) (u2 A) 0 0 0 = 0 ∧
-    rhs A ν (w3 A) (u3 A) 0 0 0 = 6 * A * (A - ν) := by
+    rhs A ν (ω₁ A) (u₁ A) 0 0 0 = 0 ∧ rhs A ν (ω₂ A) (u₂ A) 0 0 0 = 0 ∧
+    rhs A ν (ω₃ A) (u₃ A) 0 0 0 = 6 * A * (A - ν) := by
   refine ⟨?_, ?_, ?_⟩ <;>
-  · simp only [rhs, w1_eq, w2_eq, w3_eq, lap, dx, dy, dz, u1, u2, u3]
+  · simp only [rhs, ω₁_eq, ω₂_eq, ω₃_eq, lap, dx, dy, dz, u₁, u₂, u₃]
     simp
     try ring
 
@@ -208,7 +212,7 @@ theorem amplitude_exists (ν C k : ℝ) (hν : 0 < ν) (hk : 0 < k) :
     nlinarith
   linarith
 
-/-- Scalar step of the V2 (localized-family) argument: with `M₀ = 120νλ²` and touching-function
+/-- Scalar step of the V2 (localized-family) argument: with `‖ω(·,0)‖_{L∞} = 120νλ²` and touching-function
 derivative `1200ν²λ⁴` (values from REPORT.md §V2, established by exact symbolic computation and
 an interval-arithmetic certificate, NOT in Lean), the estimate is violated once
 `1200ν²λ⁴ ≥ C`. -/
