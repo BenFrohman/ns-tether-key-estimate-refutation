@@ -39,6 +39,7 @@ jobs:
       - name: Report Lean toolchain
         run: |
           cat lean/lean-toolchain
+          elan --version
           elan show
           lake --version
           lean --version
